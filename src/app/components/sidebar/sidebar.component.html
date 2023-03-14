@@ -1,61 +1,82 @@
-<div class="flex-shrink-0 p-3 bg-white" style="width: 280px;">
-    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-      <img class="logo" src="../assets/img/valpo.png" alt="">
+<div class="p-3 bg-light" style="width: 280px; height: 95vh;">
+    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark">
+        <img class="logo" src="../assets/img/valpo.png" alt="">
     </a>
     <ul class="list-unstyled ps-0">
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Home
-        </button>
-        <div class="collapse show" id="home-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Orders
-        </button>
-        <div class="collapse" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Processed</a></li>
-            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="border-top my-3"></li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-          Account
-        </button>
-        <div class="collapse" id="account-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New...</a></li>
-            <li><a href="#" class="link-dark rounded">Profile</a></li>
-            <li><a href="#" class="link-dark rounded">Settings</a></li>
-            <li><a href="#" class="link-dark rounded">Sign out</a></li>
-          </ul>
-        </div>
-      </li>
+        <strong><small>Menu</small></strong>
+        <li class="mb-1">
+            <button class="btn btn-toggle-inicio align-items-center rounded" aria-expanded="true">
+                <img src="../../../assets/icon/house.svg" alt="" class="icon">
+                Inicio
+            </button>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#home-collapse" aria-expanded="false">
+                <img src="../../../assets/icon/people.svg" alt="" class="icon">
+                Clientes
+            </button>
+            <div class="collapse" id="home-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Ver Clientes</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#dashboard-collapse" aria-expanded="false">
+                <img src="../../../assets/icon/clipboard-data.svg" alt="" class="icon">
+                Finanzas
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Facturas</a></li>
+                    <li><a href="#" class="link-dark rounded">Ordenes de Compra</a></li>
+                    <li><a href="#" class="link-dark rounded">Libro de Banco</a></li>
+                    <li><a href="#" class="link-dark rounded">Flujo de Caja</a></li>
+                    <li><a href="#" class="link-dark rounded">Flujo de Efectivo</a></li>
+                    <li><a href="#" class="link-dark rounded">Presupuesto Ejecutado</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#orders-collapse" aria-expanded="false">
+                <img src="../../../assets/icon/file-earmark-person.svg" alt="" class="icon">
+                Recursos Humanos
+            </button>
+            <div class="collapse" id="orders-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-dark rounded">Colaboradores</a></li>
+                    <li><a href="#" class="link-dark rounded">Remuneraciones</a></li>
+                </ul>
+            </div>
+        </li>
+
     </ul>
-  </div>
-  
-  
+    <hr>
+    <div class="mB">
+        <strong><small>Perfil</small></strong>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-black text-decoration-none dropdown-toggle" id="dropdownUser1"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../../../assets/img/avatar.jpg" alt="" width="50" height="50" class="rounded-circle me-2">
+            <div class="datosPerfil">
+                <strong>Omar Guerra A.</strong>
+                <small>omar.Guerra@valposystems.com</small>
+            </div>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li>
+                <a class="dropdown-item" href="#">Perfil</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </div>
+</div>
