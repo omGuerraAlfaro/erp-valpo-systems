@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="p-3 bg-light" style="width: 280px; height: 95vh;">
     <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark">
         <img class="logo" src="../assets/img/valpo.png" alt="">
@@ -5,7 +6,7 @@
     <ul class="list-unstyled ps-0">
         <strong><small>Menu</small></strong>
         <li class="mb-1">
-            <button class="btn btn-toggle-inicio align-items-center rounded" aria-expanded="true">
+            <button routerLink="/home" class="btn btn-toggle-inicio align-items-center rounded" aria-expanded="true">
                 <img src="../../../assets/icon/house.svg" alt="" class="icon">
                 Inicio
             </button>
@@ -18,7 +19,7 @@
             </button>
             <div class="collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-dark rounded">Ver Clientes</a></li>
+                    <li><a href="/client" class="link-dark rounded">Ver Clientes</a></li>
                 </ul>
             </div>
         </li>
@@ -75,7 +76,7 @@
                 <hr class="dropdown-divider">
             </li>
             <li>
-                <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                <a class="dropdown-item" (click)="logout()">Cerrar Sesión</a>
             </li>
         </ul>
     </div>

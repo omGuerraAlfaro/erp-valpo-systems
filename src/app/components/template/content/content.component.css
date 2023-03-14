@@ -1,0 +1,7 @@
+.posicion{
+    position: absolute;
+    top: 55px;
+    left: 285px;    
+    height: 95vh;    
+    z-index: -1;
+}
