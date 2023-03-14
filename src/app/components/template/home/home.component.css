@@ -1,4 +1,4 @@
-.bg{
-    
-    background-color: aquamarine;
+.posicion {
+    display:flex;
+    flex-direction: row;
 }
