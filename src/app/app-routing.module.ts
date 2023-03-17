@@ -28,3 +28,9 @@ const routes: Routes = [
   { path: 'libro-banco', component: LibroBancoComponent},
 
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

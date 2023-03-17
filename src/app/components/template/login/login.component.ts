@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   login() {
     localStorage.setItem('ingresado', 'true');
     this.router.navigate(['/home']);
+    location.reload();
   }
 
 }

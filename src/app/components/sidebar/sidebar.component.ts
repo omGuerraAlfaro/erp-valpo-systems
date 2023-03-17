@@ -16,5 +16,7 @@ export class SidebarComponent implements OnInit {
   
   logout(){
     this.router.navigate(['/login']);
+    localStorage.removeItem('ingresado');
+    location.reload();
   }
 }

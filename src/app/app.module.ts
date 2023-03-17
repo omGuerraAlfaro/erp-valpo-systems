@@ -9,6 +9,12 @@ import { HomeComponent } from './components/template/home/home.component';
 import { LoginComponent } from './components/template/login/login.component';
 import { ContentComponent } from './components/template/content/content.component';
 import { ClientComponent } from './components/client/client.component';
+import { FacturaComponent } from './components/factura/factura.component';
+import { OrdenCompraComponent } from './components/orden-compra/orden-compra.component';
+import { FlujoCajaComponent } from './components/flujo-caja/flujo-caja.component';
+import { FlujoEfectivoComponent } from './components/flujo-efectivo/flujo-efectivo.component';
+import { PreEfectivoComponent } from './components/pre-efectivo/pre-efectivo.component';
+import { LibroBancoComponent } from './components/libro-banco/libro-banco.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,12 @@ import { ClientComponent } from './components/client/client.component';
     LoginComponent,
     ContentComponent,
     ClientComponent,
-    
+    FacturaComponent,
+    OrdenCompraComponent,
+    FlujoCajaComponent,
+    FlujoEfectivoComponent,
+    PreEfectivoComponent,
+    LibroBancoComponent
   ],
   imports: [
     BrowserModule,
