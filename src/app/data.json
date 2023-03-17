@@ -1,0 +1,153 @@
+{
+    "cod_contable": [
+        {
+            "activo": [
+                {
+                    "cod_activo": 1000000,
+                    "nombre_cod": "Activo",
+                    "activo": [
+                        {
+                            "cod": 1100000,
+                            "nombre_cod": "Activo Circulante",
+                            "activo_circulante": [
+                                {
+                                    "cod": 1101000,
+                                    "nombre_cod": "Caja y Fondo Fijo",
+                                    "caja_fondofijo": [
+                                        {
+                                            "cod": 1101001,
+                                            "nombre_cod": "Caja"
+                                        },
+                                        {
+                                            "cod": 1101002,
+                                            "nombre_cod": "Fondo Fijo"
+                                        },
+                                        {
+                                            "cod": 1101003,
+                                            "nombre_cod": "Fondo a Rendir"
+                                        },
+                                        {
+                                            "cod": 1101004,
+                                            "nombre_cod": "Divisas"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "cod": 1102000,
+                                    "nombre_cod": "Cuenta Corriente",
+                                    "cuenta_corriente": [
+                                        {
+                                            "cod": 1102002,
+                                            "nombre_cod": "Banco Santander"
+                                        },
+                                        {
+                                            "cod": 1102003,
+                                            "nombre_cod": "Banco Bci"
+                                        },
+                                        {
+                                            "cod": 1102004,
+                                            "nombre_cod": "Banco Scotiabank"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "cod": 1103000,
+                                    "nombre_cod": "Cuenta Corriente USD",
+                                    "cuenta_corriente_usd": [
+                                        {
+                                            "cod": 1103003,
+                                            "nombre_cod": "Banco Bci USD"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "cod": 1107000,
+                                    "nombre_cod": "Deudores por Venta(Neto)",
+                                    "deudores_venta": [
+                                        {
+                                            "cod": 1107001,
+                                            "nombre_cod": "Facturas por Cobrar"
+                                        },
+                                        {
+                                            "cod": 1107002,
+                                            "nombre_cod": "Boletas por Cobrar"
+                                        },
+                                        {
+                                            "cod": 1107003,
+                                            "nombre_cod": "Cuentas por Cobrar"
+                                        },
+                                        {
+                                            "cod": 1107004,
+                                            "nombre_cod": "Tarjeta de Credito por Cobrar"
+                                        },
+                                        {
+                                            "cod": 1107005,
+                                            "nombre_cod": "Cartera Vencida de Clientes"
+                                        },
+                                        {
+                                            "cod": 1107006,
+                                            "nombre_cod": "Facturas de Exportación por Cobrar"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "cod": 1108000,
+                                    "nombre_cod": "Documentos por Cobrar",
+                                    "documentos_cobrar": [
+                                        {
+                                            "cod": 1108005,
+                                            "nombre_cod": "Documentos en Cobranza"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "cod": 1109000,
+                                    "nombre_cod": "Deudores Varios",
+                                    "deudores_varios": [
+                                        {
+                                            "cod": 1109002,
+                                            "nombre_cod": "Factoring por Liquidar"
+                                        },
+                                        {
+                                            "cod": 1109003,
+                                            "nombre_cod": "Anticipo de Proveedores"
+                                        },
+                                        {
+                                            "cod": 1109004,
+                                            "nombre_cod": "Anticipo de Honorarios"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+
+                    ]
+                }
+            ],
+            "pasivo": [
+                {
+                    "cod_activo_circulante": 1100000,
+                    "nombre_cod": "Activo Circulante"
+                }
+            ],
+            "patrimonio": [
+                {
+                    "cod_activo_circulante": 1100000,
+                    "nombre_cod": "Activo Circulante"
+                }
+            ],
+            "ingreso": [
+                {
+                    "cod_activo_circulante": 1100000,
+                    "nombre_cod": "Activo Circulante"
+                }
+            ],
+            "egreso": [
+                {
+                    "cod_activo_circulante": 1100000,
+                    "nombre_cod": "Activo Circulante"
+                }
+            ]
+        }
+    ]
+}

@@ -9,17 +9,17 @@ import { HomeComponent } from './components/template/home/home.component';
 import { LoginComponent } from './components/template/login/login.component';
 import { ContentComponent } from './components/template/content/content.component';
 
-//clientes
+//Clientes
 import { ClientComponent } from './components/client/client.component';
 
-//finanzas
+//Finanzas
 import { FacturaComponent } from './components/finance/factura/factura.component';
 import { OrdenCompraComponent } from './components/finance/orden-compra/orden-compra.component';
 import { FlujoCajaComponent } from './components/finance/flujo-caja/flujo-caja.component';
 import { FlujoEfectivoComponent } from './components/finance/flujo-efectivo/flujo-efectivo.component';
 import { PreEfectivoComponent } from './components/finance/pre-efectivo/pre-efectivo.component';
 
-//libro de banco
+//Libro de banco
 import { LibroBancoComponent } from './components/finance/libro-banco/libro-banco.component';
 import { Sidebar2Component } from './components/sidebar2/sidebar2.component';
 import { PasivosComponent } from './components/finance/LIBRO//pasivos/pasivos.component';
