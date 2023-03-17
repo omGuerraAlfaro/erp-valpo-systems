@@ -1,1 +1,7 @@
-<app-content></app-content>
+<div *ngIf="!user; else userElse">
+    <app-login></app-login>
+</div>
+
+<ng-template #userElse>
+    <app-content></app-content>
+</ng-template>
