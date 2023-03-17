@@ -1,0 +1,46 @@
+<div class="p-3 bg-light border" style="width: 280px; height: 94vh;">
+    <ul class="list-unstyled ps-0">
+        <strong><small>Sub-Menu</small></strong>
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                data-bs-target="#side2-collapse" aria-expanded="false">
+                <img src="../../../assets/icon/clipboard-data.svg" alt="" class="icon">
+                Libro de Banco
+            </button>
+            <div class="collapse show" id="side2-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a class="link-dark rounded" routerLink="/libro-banco/activos" (click)="activoClick()">Activos</a></li>
+                    <li><a class="link-dark rounded" routerLink="/libro-banco/pasivos" (click)="pasivoClick()">Pasivos</a></li>
+                    <li><a class="link-dark rounded" routerLink="/libro-banco/patrimonio" (click)="patrimonioClick()">Patrimonio</a></li>
+                    <li><a class="link-dark rounded" routerLink="/libro-banco/ingresos" (click)="ingresoClick()">Ingresos</a></li>
+                    <li><a class="link-dark rounded" routerLink="/libro-banco/egresos" (click)="egresoClick()">Egresos</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div *ngIf="!activo; else actElse"></div>
+<ng-template #actElse>
+    <app-activos></app-activos>
+</ng-template>
+
+<div *ngIf="!pasivo; else pavElse"></div>
+<ng-template #pavElse>
+    <app-pasivos></app-pasivos>
+</ng-template>
+
+<div *ngIf="!patrimonio; else patElse"></div>
+<ng-template #patElse>
+    <app-patrimonio></app-patrimonio>
+</ng-template>
+
+<div *ngIf="!ingreso; else ingElse"></div>
+<ng-template #ingElse>
+    <app-ingresos></app-ingresos>
+</ng-template>
+
+<div *ngIf="!egreso; else egrElse"></div>
+<ng-template #egrElse>
+    <app-egresos></app-egresos>
+</ng-template>

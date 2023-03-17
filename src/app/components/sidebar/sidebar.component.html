@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div class="p-3 bg-light" style="width: 280px; height: 95vh;">
-    <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark">
+<div class="p-3 bg-light border" style="width: 280px; height: 95vh;">
+    <a class="d-flex align-items-center pb-3 mb-3 link-dark">
         <img class="logo" src="../assets/img/valpo.png" alt="">
     </a>
     <ul class="list-unstyled ps-0">
@@ -19,24 +19,24 @@
             </button>
             <div class="collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/client" class="link-dark rounded">Ver Clientes</a></li>
+                    <li><a class="link-dark rounded" routerLink="/client">Ver Clientes</a></li>
                 </ul>
             </div>
         </li>
         <li class="mb-1">
             <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                data-bs-target="#dashboard-collapse" aria-expanded="false">
+                data-bs-target="#finance-collapse" aria-expanded="false">
                 <img src="../../../assets/icon/clipboard-data.svg" alt="" class="icon">
                 Finanzas
             </button>
-            <div class="collapse" id="dashboard-collapse">
+            <div class="collapse" id="finance-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="/factura" class="link-dark rounded">Facturas</a></li>
-                    <li><a href="/orden-compra" class="link-dark rounded">Ordenes de Compra</a></li>
-                    <li><a href="/libro-banco" class="link-dark rounded">Libro de Banco</a></li>
-                    <li><a href="/flujo-caja" class="link-dark rounded">Flujo de Caja</a></li>
-                    <li><a href="/flujo-efectivo" class="link-dark rounded">Flujo de Efectivo</a></li>
-                    <li><a href="/pre-efectivo" class="link-dark rounded">Presupuesto Ejecutado</a></li>
+                    <li><a class="link-dark rounded" routerLink="/factura">Facturas</a></li>
+                    <li><a class="link-dark rounded" routerLink="/orden-compra">Ordenes de Compra</a></li>
+                    <li><a class="link-dark rounded" routerLink="/libro-banco">Libro de Banco</a></li>
+                    <li><a class="link-dark rounded" routerLink="/flujo-caja">Flujo de Caja</a></li>
+                    <li><a class="link-dark rounded" routerLink="/flujo-efectivo">Flujo de Efectivo</a></li>
+                    <li><a class="link-dark rounded" routerLink="/pre-efectivo">Presupuesto Ejecutado</a></li>
                 </ul>
             </div>
         </li>

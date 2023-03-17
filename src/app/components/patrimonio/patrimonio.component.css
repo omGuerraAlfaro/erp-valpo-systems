@@ -1,0 +1,11 @@
+.color{
+    background-color: #f5f5f5;
+}
+
+.posicion{
+    position: absolute;
+    top: 0px;
+    left: 285px;    
+    height: 94vh;
+    width: 143vh;
+}

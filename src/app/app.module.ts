@@ -15,6 +15,12 @@ import { FlujoCajaComponent } from './components/flujo-caja/flujo-caja.component
 import { FlujoEfectivoComponent } from './components/flujo-efectivo/flujo-efectivo.component';
 import { PreEfectivoComponent } from './components/pre-efectivo/pre-efectivo.component';
 import { LibroBancoComponent } from './components/libro-banco/libro-banco.component';
+import { Sidebar2Component } from './components/sidebar2/sidebar2.component';
+import { PasivosComponent } from './components/pasivos/pasivos.component';
+import { ActivosComponent } from './components/activos/activos.component';
+import { PatrimonioComponent } from './components/patrimonio/patrimonio.component';
+import { IngresosComponent } from './components/ingresos/ingresos.component';
+import { EgresosComponent } from './components/egresos/egresos.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +36,13 @@ import { LibroBancoComponent } from './components/libro-banco/libro-banco.compon
     FlujoCajaComponent,
     FlujoEfectivoComponent,
     PreEfectivoComponent,
-    LibroBancoComponent
+    LibroBancoComponent,
+    Sidebar2Component,
+    PasivosComponent,
+    ActivosComponent,
+    PatrimonioComponent,
+    IngresosComponent,
+    EgresosComponent
   ],
   imports: [
     BrowserModule,
