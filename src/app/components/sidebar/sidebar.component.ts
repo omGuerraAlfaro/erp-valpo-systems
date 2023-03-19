@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -15,8 +17,21 @@ export class SidebarComponent implements OnInit {
 
   
   logout(){
-    this.router.navigate(['/login']);
-    localStorage.removeItem('ingresado');
-    location.reload();
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Deseas Cerrar Sesión?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Cerrar Sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/login']);
+        localStorage.removeItem('ingresado');
+        location.reload();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
+    
   }
 }
