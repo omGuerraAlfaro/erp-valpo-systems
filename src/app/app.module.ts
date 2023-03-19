@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import 'bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/template/home/home.component';
@@ -27,6 +29,7 @@ import { ActivosComponent } from './components/finance/LIBRO/activos/activos.com
 import { PatrimonioComponent } from './components/finance/LIBRO//patrimonio/patrimonio.component';
 import { IngresosComponent } from './components/finance/LIBRO//ingresos/ingresos.component';
 import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.component';
+import { MantenedorCategoriaComponent } from './components/finance/mantenedor-categoria/mantenedor-categoria.component';
 
 @NgModule({
   declarations: [
@@ -48,11 +51,13 @@ import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.co
     ActivosComponent,
     PatrimonioComponent,
     IngresosComponent,
-    EgresosComponent
+    EgresosComponent,
+    MantenedorCategoriaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

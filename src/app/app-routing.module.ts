@@ -13,6 +13,7 @@ import { OrdenCompraComponent } from './components/finance/orden-compra/orden-co
 import { FlujoCajaComponent } from './components/finance/flujo-caja/flujo-caja.component';
 import { FlujoEfectivoComponent } from './components/finance/flujo-efectivo/flujo-efectivo.component';
 import { PreEfectivoComponent } from './components/finance/pre-efectivo/pre-efectivo.component';
+import { MantenedorCategoriaComponent } from './components/finance/mantenedor-categoria/mantenedor-categoria.component';
 //Libro de Banco
 import { LibroBancoComponent } from './components/finance/libro-banco/libro-banco.component';
 import { ActivosComponent } from './components/finance/LIBRO/activos/activos.component';
@@ -27,24 +28,25 @@ import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.co
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent} ,
-  { path: 'home', component: HomeComponent},
-  { path: 'client', component: ClientComponent},
-  { path: 'factura', component: FacturaComponent},
-  { path: 'orden-compra', component: OrdenCompraComponent},
-  { path: 'content', component: ContentComponent},
-  { path: 'flujo-caja', component: FlujoCajaComponent},
-  { path: 'flujo-efectivo', component: FlujoEfectivoComponent},
-  { path: 'pre-efectivo', component: PreEfectivoComponent},
-  { 
-    path: 'libro-banco', 
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'client', component: ClientComponent },
+  { path: 'factura', component: FacturaComponent },
+  { path: 'orden-compra', component: OrdenCompraComponent },
+  { path: 'content', component: ContentComponent },
+  { path: 'flujo-caja', component: FlujoCajaComponent },
+  { path: 'flujo-efectivo', component: FlujoEfectivoComponent },
+  { path: 'pre-efectivo', component: PreEfectivoComponent },
+  { path: 'mantenedor', component: MantenedorCategoriaComponent },
+  {
+    path: 'libro-banco',
     component: LibroBancoComponent,
     children: [
-      { path: 'pasivos', component: PasivosComponent},
-      { path: 'activos', component: ActivosComponent},
-      { path: 'patrimonio', component: PatrimonioComponent},
-      { path: 'ingresos', component: IngresosComponent},
-      { path: 'egresos', component: EgresosComponent},
+      { path: 'pasivos', component: PasivosComponent },
+      { path: 'activos', component: ActivosComponent },
+      { path: 'patrimonio', component: PatrimonioComponent },
+      { path: 'ingresos', component: IngresosComponent },
+      { path: 'egresos', component: EgresosComponent }
     ]
   },
 
