@@ -1,35 +1,41 @@
 <div class="color posicion border">
     <div class="container">
         <h1>Mantenedor de Cuentas Contables</h1>
-        <div class="responsive-table" *ngFor="let cat of infoCategorias">
+        <hr>
+        <h5>1000000 - Activos: </h5>
+        <div class="responsive-table">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th scope="col">id</th>
                         <th scope="col">Codigo Contable</th>
                         <th scope="col">Detalle</th>
+                        <th scope="col">Categoria Principal</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let cat of infoActivo; let i = index">
                     <tr>
-                        <th scope="row">1</th>
-                        <td>{{cat.activo}}</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row">{{i}}</th>
+                        <td>{{cat.cod}}</td>
+                        <td>{{cat.nombre_cod}}</td>
+                        <td>Activos</td>
                     </tr>
+                </tbody>
+                <tbody *ngFor="let cat2 of infoActivo2; let i = index">
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                        <th scope="row">{{"0,"+i}}</th>
+                        <td>{{cat2.cod}}</td>
+                        <td>{{cat2.nombre_cod}}</td>
+                        <td>Activo Circulante</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <button class="btn btn-success m-3" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModal">Agregar</button>
+        <button class="btn btn-danger m-3">Eliminar</button>
+        <button class="btn btn-warning m-3">Editar</button>
+
     </div>
+    
 </div>

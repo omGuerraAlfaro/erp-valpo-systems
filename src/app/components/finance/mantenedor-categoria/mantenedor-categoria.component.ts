@@ -12,7 +12,12 @@ export class MantenedorCategoriaComponent implements OnInit {
 
 
   infoCategorias: any[] = [];
-  info:any;
+  infoActivo: any;
+  infoActivo2: any;
+  infoPasivo: any;
+  infoPatrimonio: any;
+  infoIngreso: any;
+  infoEgreso: any;
 
   constructor(private data: DataCategoryService) { }
 
@@ -20,21 +25,28 @@ export class MantenedorCategoriaComponent implements OnInit {
 
 
     this.data.getCategory().subscribe((data) => {
-      Object.entries(data);
-      console.log(Object.entries(data));
-      
-
-      console.log(data.activo);
-      console.log(data[1]);
-      
-      
+      // console.log(Object.entries(data));
+      // console.log(Object.values(data));   
 
 
+      this.infoActivo = data.activo;
+      console.log(this.infoActivo);
+
+      this.infoActivo.map((item: any) => {
+        this.infoCategorias.push(item);
+        this.infoCategorias.filter((item: any) => {
+          console.log(item.activo_circulante);
+          this.infoActivo2 = item.activo_circulante;
+        });
+      });
       
 
       
+
+
 
     });
+
   }
 
 }
