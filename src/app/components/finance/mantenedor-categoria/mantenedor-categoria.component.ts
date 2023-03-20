@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/interfaces/category';
 import { DataCategoryService } from 'src/app/services/data-category.service';
-import { CategoryManager } from './manager';
 
 
 @Component({
@@ -11,8 +10,9 @@ import { CategoryManager } from './manager';
 })
 export class MantenedorCategoriaComponent implements OnInit {
 
-  
-  infoCategorias: Category[] = [];
+
+  infoCategorias: any[] = [];
+  info:any;
 
   constructor(private data: DataCategoryService) { }
 
@@ -20,12 +20,21 @@ export class MantenedorCategoriaComponent implements OnInit {
 
 
     this.data.getCategory().subscribe((data) => {
-      const manager = new CategoryManager(data);
-      console.log(manager.getAll());
-      this.infoCategorias = manager.getAll();
-      console.log(this.infoCategorias);
+      Object.entries(data);
+      console.log(Object.entries(data));
       
+
+      console.log(data.activo);
+      console.log(data[1]);
+      
+      
+
+
+      
+
+      
+
     });
   }
-  
+
 }

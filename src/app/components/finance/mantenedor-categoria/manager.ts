@@ -1,6 +1,6 @@
 import { Category } from "src/app/interfaces/category";
 
-export class CategoryManager {
+class CategoryManager {
     private categories: Category[];
   
     constructor(data: Category[]) {

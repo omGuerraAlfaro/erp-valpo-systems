@@ -1,7 +1,7 @@
 <div class="color posicion border">
     <div class="container">
         <h1>Mantenedor de Cuentas Contables</h1>
-        <div class="responsive-table">
+        <div class="responsive-table" *ngFor="let cat of infoCategorias">
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -13,7 +13,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>aaa</td>
+                        <td>{{cat.activo}}</td>
                         <td>Otto</td>
                         <td>@mdo</td>
                     </tr>
