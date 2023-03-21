@@ -16,7 +16,7 @@ export class MantenedorCategoriaComponent implements OnInit {
 
   infoActivo: any;
   infoActivo2: any;
-  infoActivo3: any;
+  infoActivo3: Array<any> = [];
   infoActivo4: any;
   info: any;
   info2: any;
@@ -39,7 +39,7 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.infoActivo.map((item: any) => {
         this.infoCategorias.push(item);
         this.infoCategorias.filter((item: any) => {
-          // console.log(item.activo_circulante);
+          console.log(item.activo_circulante);
           this.infoActivo2 = item.activo_circulante;
         });
         this.infoActivo2.flatMap((item: any) => {
@@ -48,11 +48,11 @@ export class MantenedorCategoriaComponent implements OnInit {
           // console.log(activos);
           activos.map((item: any) => {
             // console.log(item);
-            this.infoActivo3 = item;
+            this.infoActivo3 = item
           });
-          // console.log(this.infoActivo3);
+          console.log(this.infoActivo3);
 
-          this.infoActivo3.filter((item: any) => {
+          this.infoActivo3.flatMap((item: any) => {
             // console.log(item);
 
             this.infoActivo4 = Object.values(item);
