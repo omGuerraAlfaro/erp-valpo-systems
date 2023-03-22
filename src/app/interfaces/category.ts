@@ -1,5 +1,4 @@
 export interface Category {
-    id: number;
+    cod: number;
     name: string;
-    subcategories?: Category[];
 }

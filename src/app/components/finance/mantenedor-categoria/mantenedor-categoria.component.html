@@ -18,12 +18,12 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Codigo Contable</th>
-                                        <th scope="col">Detalle</th>
+                                        <th scope="col">Categoria</th>
                                         <th scope="col">Sub Categoria</th>
-                                        <th scope="col">Sub Sub Categorias</th>
+                                        <th scope="col">Indicadores</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoActivo; let i = index">
+                                <tbody *ngFor="let cat of infoCategoria">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -36,7 +36,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -52,7 +52,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -91,7 +91,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoActivo; let i = index">
+                                <tbody *ngFor="let cat of info1">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -104,7 +104,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -120,7 +120,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -159,7 +159,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoActivo; let i = index">
+                                <tbody *ngFor="let cat of info1">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -172,7 +172,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -188,7 +188,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -227,7 +227,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoActivo; let i = index">
+                                <tbody *ngFor="let cat of info1">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -240,7 +240,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -256,7 +256,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -295,7 +295,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoActivo; let i = index">
+                                <tbody *ngFor="let cat of info1">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -308,7 +308,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoActivo2; let i = index">
+                                                    <tr *ngFor="let cat2 of info1">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -324,7 +324,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat3 of infoActivo4">
+                                                    <tr *ngFor="let cat3 of info1">
                                                         <th scope="row">{{cat3.cod}}</th>
                                                         <td>{{cat3.nombre_cod}}</td>
                                                     </tr>

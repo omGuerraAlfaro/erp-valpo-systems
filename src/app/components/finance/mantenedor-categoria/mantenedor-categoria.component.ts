@@ -9,71 +9,58 @@ import { DataCategoryService } from 'src/app/services/data-category.service';
   styleUrls: ['./mantenedor-categoria.component.css']
 })
 export class MantenedorCategoriaComponent implements OnInit {
-
-
-  infoCategorias: any[] = [];
-
-
-  infoActivo: any;
-  infoActivo2: any;
-  infoActivo3: Array<any> = [];
-  infoActivo4: any;
-  info: any;
-  info2: any;
-
-  infoPasivo: any;
-  infoPatrimonio: any;
-  infoIngreso: any;
-  infoEgreso: any;
+  infoCategoria: any;
+  infoSubCategoria: any;
+  infoIndicadores: any;
+  info1: any;
 
   constructor(private data: DataCategoryService) { }
 
   ngOnInit(): void {
     this.data.getCategory().subscribe((data) => {
-      // console.log(Object.entries(data));
-      // console.log(Object.values(data));
+      const { categoria } = data;
+      const { sub_categoria } = categoria;
+      // console.log(categoria);
+      // console.log(sub_categoria);
 
-      this.infoActivo = data.activo;
-      // console.log(this.infoActivo);
-
-      this.infoActivo.map((item: any) => {
-        this.infoCategorias.push(item);
-        this.infoCategorias.filter((item: any) => {
-          console.log(item.activo_circulante);
-          this.infoActivo2 = item.activo_circulante;
-        });
-        this.infoActivo2.flatMap((item: any) => {
-          // console.log(item);
-          const activos = Object.values(item);
-          // console.log(activos);
-          activos.map((item: any) => {
-            // console.log(item);
-            this.infoActivo3 = item
-          });
-          console.log(this.infoActivo3);
-
-          this.infoActivo3.flatMap((item: any) => {
-            // console.log(item);
-
-            this.infoActivo4 = Object.values(item);
-            console.log(this.infoActivo4);
-          });
-
-          // this.infoActivo3.map((item: any) => {
-          //   console.log(item)
-          //   this.info = Object.values(item);
-          //   const [cod, nombre_cod] = this.info;
-          //   this.info2 = [
-          //     cod,
-          //     nombre_cod
-          //   ];
-          // });
-
-
-        });
-
+      const dataCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; }) {
+        let cod_subCategoria = sub_categoria.cod
+        let name_subCategoria = sub_categoria.nombre_cod
+        return {
+          cod: cod_subCategoria,
+          nombre_cod: name_subCategoria
+        }
       });
-    });
+      console.log(dataCategoria);
+      
 
+
+      const dataSubCategoria = categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub:any; }) {
+        return sub_categoria.index_sub.map(function (indicador: { cod: any; nombre_cod:any; }) {
+          console.log(indicador);
+          
+          let cod_indicador = indicador.cod
+          let name_indicador = indicador.nombre_cod
+          return {
+            cod: cod_indicador,
+            nombre_cod: name_indicador
+          }
+        });        
+      });  
+      console.log(dataSubCategoria);
+      this.infoCategoria = Object.values(dataCategoria);
+      console.log(this.infoCategoria);
+
+      this.infoSubCategoria = Object.values(dataSubCategoria);
+      console.log(this.infoSubCategoria);
+
+
+
+    });
   }
+
+
+
 }
+
+
