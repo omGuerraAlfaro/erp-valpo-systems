@@ -23,7 +23,7 @@
                                         <th scope="col">Indicadores</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of infoCategoria">
+                                <tbody *ngFor="let cat of infoCategoriaActivo">
                                     <tr>
                                         <th class="text-center" scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -36,7 +36,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoSubCategoria">
+                                                    <tr *ngFor="let cat2 of infoSubCategoriaActivo">
                                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -52,7 +52,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of infoIndicadores">
+                                                    <tr *ngFor="let cat2 of infoIndicadoresActivo">
                                                         <th class="text-center" scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -65,9 +65,35 @@
                         </div>
                     </div>
                     <div class="container">
-                        <button class="btn btn-success m-3">Agregar</button>
+                        <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#activosModal">Agregar</button>
                         <button class="btn btn-danger m-3">Eliminar</button>
                         <button class="btn btn-warning m-3">Editar</button>
+
+                        <!-- Modal agregar activos -->
+                        <div class="modal fade" id="activosModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Categoria</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Seleccione SubCategoria:</option>
+                                            <option value="1">Activos Circulantes</option>
+                                            <option value="2">Otros Activos</option>
+                                          </select>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -91,7 +117,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of info1">
+                                <tbody *ngFor="let cat of infoCategoriaPasivo">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -104,7 +130,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoSubCategoriaPasivo">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -120,7 +146,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoIndicadoresPasivo">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>

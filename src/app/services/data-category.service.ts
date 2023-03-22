@@ -18,8 +18,16 @@ export class DataCategoryService {
 
   constructor(private http: HttpClient) { }
 
-  getCategory(): Observable<any> {
+  getCategoryActivo(): Observable<any> {
     const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/data.json');
     return dataCategoria;
   }
+  getCategoryPasivo(): Observable<any> {
+    const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/dataPasivos.json');
+    return dataCategoria;
+  }
+
+
+
+  
 }
