@@ -23,36 +23,55 @@ export class MantenedorCategoriaComponent implements OnInit {
       // console.log(categoria);
       // console.log(sub_categoria);
 
-      const dataCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; }) {
-        let cod_subCategoria = sub_categoria.cod
-        let name_subCategoria = sub_categoria.nombre_cod
+      //categoria
+      const dataCategoria = sub_categoria.flatMap(function (categoria: { cod: any; nombre_cod: any; }) {
+        let cod_subCategoria = categoria.cod
+        let name_subCategoria = categoria.nombre_cod
         return {
           cod: cod_subCategoria,
           nombre_cod: name_subCategoria
         }
       });
-      console.log(dataCategoria);
-      
 
-
-      const dataSubCategoria = categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub:any; }) {
-        return sub_categoria.index_sub.map(function (indicador: { cod: any; nombre_cod:any; }) {
-          console.log(indicador);
-          
-          let cod_indicador = indicador.cod
-          let name_indicador = indicador.nombre_cod
+      //subcategoria
+      const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
+        return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
+          let cod_subCategoria = subCategoria.cod
+          let name_subCategoria = subCategoria.nombre_cod
+          let index_indicador = subCategoria.indicador
           return {
-            cod: cod_indicador,
-            nombre_cod: name_indicador
+            cod: cod_subCategoria,
+            nombre_cod: name_subCategoria,
+            indicador: index_indicador
+
           }
-        });        
-      });  
-      console.log(dataSubCategoria);
-      this.infoCategoria = Object.values(dataCategoria);
+        });
+      });
+
+
+      //indicadores
+      const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
+        return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
+          return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
+            let cod_indicadores = indicador.cod
+            let name_indicadores = indicador.nombre_cod
+            return {
+              cod: cod_indicadores,
+              nombre_cod: name_indicadores
+            }
+          });
+        });
+      });
+
+
+      this.infoCategoria = dataCategoria;
       console.log(this.infoCategoria);
 
-      this.infoSubCategoria = Object.values(dataSubCategoria);
+      this.infoSubCategoria = dataSubCategoria
       console.log(this.infoSubCategoria);
+
+      this.infoIndicadores = dataIndicadores.flat();
+      console.log(this.infoIndicadores);
 
 
 
