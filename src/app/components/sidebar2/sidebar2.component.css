@@ -58,3 +58,7 @@ small {
     font-size: 1.5rem;
     margin-right: .3rem;
 }
+
+.active{
+    background-color: #8f8f8f;
+}

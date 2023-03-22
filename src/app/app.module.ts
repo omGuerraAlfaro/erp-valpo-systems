@@ -30,6 +30,9 @@ import { PatrimonioComponent } from './components/finance/LIBRO//patrimonio/patr
 import { IngresosComponent } from './components/finance/LIBRO//ingresos/ingresos.component';
 import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.component';
 import { MantenedorCategoriaComponent } from './components/finance/mantenedor-categoria/mantenedor-categoria.component';
+import { CategoryFacturaComponent } from './components/category-factura/category-factura.component';
+import { RemuneracionesComponent } from './components/remuneraciones/remuneraciones.component';
+import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { MantenedorCategoriaComponent } from './components/finance/mantenedor-ca
     PatrimonioComponent,
     IngresosComponent,
     EgresosComponent,
-    MantenedorCategoriaComponent
+    MantenedorCategoriaComponent,
+    CategoryFacturaComponent,
+    RemuneracionesComponent,
+    ColaboradoresComponent
   ],
   imports: [
     BrowserModule,

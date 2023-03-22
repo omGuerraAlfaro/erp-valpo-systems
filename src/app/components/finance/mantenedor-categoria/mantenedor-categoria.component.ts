@@ -23,6 +23,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   constructor(private data: DataCategoryService) { }
 
   ngOnInit(): void {
+    //activos
     this.data.getCategoryActivo().subscribe((data) => {
       const { categoria } = data;
       const { sub_categoria } = categoria;

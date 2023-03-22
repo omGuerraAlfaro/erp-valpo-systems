@@ -9,6 +9,7 @@ import { ClientComponent } from './components/client/client.component';
 
 //Finanzas
 import { FacturaComponent } from './components/finance/factura/factura.component';
+import { CategoryFacturaComponent } from './components/category-factura/category-factura.component';
 import { OrdenCompraComponent } from './components/finance/orden-compra/orden-compra.component';
 import { FlujoCajaComponent } from './components/finance/flujo-caja/flujo-caja.component';
 import { FlujoEfectivoComponent } from './components/finance/flujo-efectivo/flujo-efectivo.component';
@@ -21,6 +22,9 @@ import { PasivosComponent } from './components/finance/LIBRO//pasivos/pasivos.co
 import { PatrimonioComponent } from './components/finance/LIBRO//patrimonio/patrimonio.component';
 import { IngresosComponent } from './components/finance/LIBRO//ingresos/ingresos.component';
 import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.component';
+import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
+import { RemuneracionesComponent } from './components/remuneraciones/remuneraciones.component';
+//recursos humanos
 
 
 // import { AuthGuardGuard } from './guards/auth-guard.guard';
@@ -32,6 +36,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'client', component: ClientComponent },
   { path: 'factura', component: FacturaComponent },
+  { path: 'category-factura', component: CategoryFacturaComponent },
   { path: 'orden-compra', component: OrdenCompraComponent },
   { path: 'content', component: ContentComponent },
   { path: 'flujo-caja', component: FlujoCajaComponent },
@@ -49,6 +54,8 @@ const routes: Routes = [
       { path: 'egresos', component: EgresosComponent }
     ]
   },
+  { path: 'colaboradores', component: ColaboradoresComponent},
+  { path: 'remuneraciones', component: RemuneracionesComponent}
 
 ];
 
