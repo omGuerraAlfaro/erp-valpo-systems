@@ -26,6 +26,18 @@ export class DataCategoryService {
     const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/dataPasivos.json');
     return dataCategoria;
   }
+  getCategoryPatrimonio(): Observable<any> {
+    const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/dataPatrimonio.json');
+    return dataCategoria;
+  }
+  getCategoryIngreso(): Observable<any> {
+    const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/dataIngreso.json');
+    return dataCategoria;
+  }
+  getCategoryEgreso(): Observable<any> {
+    const dataCategoria = this.http.get<any[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/dataEgreso.json');
+    return dataCategoria;
+  }
 
 
 

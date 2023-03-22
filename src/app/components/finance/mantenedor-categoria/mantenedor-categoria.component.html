@@ -1,5 +1,5 @@
 <div class="color posicion border">
-    <div class="container">
+    <div class="container-fluid">
         <h1>Mantenedor de Cuentas Contables</h1>
         <hr>
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -185,7 +185,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of info1">
+                                <tbody *ngFor="let cat of infoCategoriaPatrimonio">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -198,7 +198,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoSubCategoriaPatrimonio">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -214,7 +214,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoIndicadoresPatrimonio">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -253,7 +253,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of info1">
+                                <tbody *ngFor="let cat of infoCategoriaIngreso">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -266,7 +266,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoSubCategoriaIngreso">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -282,7 +282,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoIndicadoresIngreso">
                                                         <th scope="row">{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -321,7 +321,7 @@
                                         <th scope="col">Sub Sub Categorias</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let cat of info1">
+                                <tbody *ngFor="let cat of infoCategoriaEgreso">
                                     <tr>
                                         <th scope="row">{{cat.cod}}</th>
                                         <th>{{cat.nombre_cod}}</th>
@@ -334,7 +334,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat2 of info1">
+                                                    <tr *ngFor="let cat2 of infoSubCategoriaEgreso">
                                                         <th scope=row>{{cat2.cod}}</th>
                                                         <td>{{cat2.nombre_cod}}</td>
                                                     </tr>
@@ -350,7 +350,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr *ngFor="let cat3 of info1">
+                                                    <tr *ngFor="let cat3 of infoIndicadoresEgreso">
                                                         <th scope="row">{{cat3.cod}}</th>
                                                         <td>{{cat3.nombre_cod}}</td>
                                                     </tr>
