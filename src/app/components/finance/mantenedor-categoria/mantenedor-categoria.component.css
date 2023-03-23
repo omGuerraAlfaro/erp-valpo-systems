@@ -1,11 +1,28 @@
-.color{
+.color {
     background-color: #f5f5f5;
 }
 
-.posicion{
+.posicion {
     position: absolute;
     top: 0px;
-    left: 0px;    
+    left: 0px;
     height: 94vh;
     width: 174vh;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
 }
