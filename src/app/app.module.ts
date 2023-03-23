@@ -33,6 +33,7 @@ import { MantenedorCategoriaComponent } from './components/finance/mantenedor-ca
 import { CategoryFacturaComponent } from './components/category-factura/category-factura.component';
 import { RemuneracionesComponent } from './components/remuneraciones/remuneraciones.component';
 import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
+import { MountPipe } from './pipes/mount.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ColaboradoresComponent } from './components/colaboradores/colaboradores
     MantenedorCategoriaComponent,
     CategoryFacturaComponent,
     RemuneracionesComponent,
-    ColaboradoresComponent
+    ColaboradoresComponent,
+    MountPipe
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,49 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlujoEfectivoComponent implements OnInit {
 
+  vars = [
+    {
+      name: 'Saldo Final del Banco Mes Anterior',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Total Ingresos',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Total Costos y Gastos',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Total Costos de Explotación',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Total Gastos',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Aumento y Disminución de Activos',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Aumento y Disminución de Pasivos',
+      mount: 1000000,
+      date: '2021-01-01'
+    },
+    {
+      name: 'Saldo Final del Banco',
+      mount: 1000000,
+      date: '2021-01-01'
+    }
+  ]
+
   constructor() { }
 
   ngOnInit(): void {

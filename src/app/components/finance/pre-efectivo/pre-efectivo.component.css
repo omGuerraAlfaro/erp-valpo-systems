@@ -9,3 +9,15 @@
     height: 94vh;
     width: 174vh;
 }
+
+.card{
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+    width: 20rem;
+}
+
+.cardContenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}

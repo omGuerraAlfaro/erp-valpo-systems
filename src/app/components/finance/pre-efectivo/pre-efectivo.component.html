@@ -1,5 +1,17 @@
 <div class="color posicion border">
-    <div class="">
-        <h1>Presupuesto de Efectivo</h1>
+    <div class="container-fluid">
+        <h1>Presupuesto Ejecutado</h1>
+        <hr>
+        <div class="cardContenedor">
+            <div class="card text-center m-2" *ngFor="let var1 of vars">
+                <div><small>{{var1.name}}</small></div>
+                <div>
+                    <h5>{{var1.date | date }}</h5>
+                </div>
+                <div>
+                    <h3>{{var1.mount | mount }}</h3>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

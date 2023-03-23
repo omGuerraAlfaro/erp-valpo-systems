@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'content', component: ContentComponent },
   { path: 'flujo-caja', component: FlujoCajaComponent },
   { path: 'flujo-efectivo', component: FlujoEfectivoComponent },
-  { path: 'pre-efectivo', component: PreEfectivoComponent },
+  { path: 'pre-ejecutado', component: PreEfectivoComponent },
   { path: 'mantenedor', component: MantenedorCategoriaComponent },
   {
     path: 'libro-banco',

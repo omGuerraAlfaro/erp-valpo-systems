@@ -6,7 +6,7 @@ import { Category } from '../interfaces/category';
 })
 export class CategoryService {
 
-  private categories: Category[] = [];
+  private categories: any[] = [];
 
   getAllCategories(): Category[] {
     return this.categories;
@@ -21,7 +21,7 @@ export class CategoryService {
   }
 
   updateCategory(category: Category): void {
-    const index = this.categories.findIndex((c) => c.id === category.id);
+    const index = this.categories.findIndex((c) => c.id === category.cod);
     if (index !== -1) {
       this.categories[index] = category;
     }
