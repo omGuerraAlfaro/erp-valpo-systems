@@ -20,7 +20,19 @@
                                         <th scope="col">Codigo Contable</th>
                                         <th scope="col">Categoria</th>
                                         <th scope="col">Sub Categoria</th>
-                                        <th scope="col">Indicadores</th>
+                                        <th scope="col" class="pull-left">Indicadores 
+                                            <div class="container pull-right">
+                                                <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#activosModal">
+                                                    <img src="../../../assets/icon/plus-circle.svg" alt="" class="icon">
+                                                </button>
+                                                <button class="btn btn-danger m-3">
+                                                    <img src="../../../assets/icon/plus-circle.svg" alt="" class="icon">
+                                                </button>
+                                                <button class="btn btn-warning m-3">
+                                                    <img src="../../../assets/icon/plus-circle.svg" alt="" class="icon">
+                                                </button>                        
+                                            </div>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let cat of infoCategoriaActivo">
@@ -64,33 +76,28 @@
                             </table>
                         </div>
                     </div>
-                    <div class="container">
-                        <button class="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#activosModal">Agregar</button>
-                        <button class="btn btn-danger m-3">Eliminar</button>
-                        <button class="btn btn-warning m-3">Editar</button>
-
-                        <!-- Modal agregar activos -->
-                        <div class="modal fade" id="activosModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Categoria</h1>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Seleccione SubCategoria:</option>
-                                            <option value="1">Activos Circulantes</option>
-                                            <option value="2">Otros Activos</option>
-                                          </select>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Guardar Cambios</button>
-                                    </div>
+                    
+                    <!-- Modal agregar activos -->
+                    <div class="modal fade" id="activosModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Categoria</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione SubCategoria:</option>
+                                        <option value="1">Activos Circulantes</option>
+                                        <option value="2">Otros Activos</option>
+                                      </select>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary">Guardar Cambios</button>
                                 </div>
                             </div>
                         </div>

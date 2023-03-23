@@ -30,8 +30,6 @@ export class MantenedorCategoriaComponent implements OnInit {
   infoSubCategoriaEgreso: any;
   infoIndicadoresEgreso: any;
 
-  info1: any;
-
   constructor(private data: DataCategoryService) { }
 
   ngOnInit(): void {
@@ -40,15 +38,12 @@ export class MantenedorCategoriaComponent implements OnInit {
       const { categoria } = data;
       const { sub_categoria } = categoria;
       //categoria
-      const dataCategoria = sub_categoria.flatMap(function (categoria: { cod: any; nombre_cod: any; }) {
-        let cod_subCategoria = categoria.cod
-        let name_subCategoria = categoria.nombre_cod
-        return {
-          cod: cod_subCategoria,
-          nombre_cod: name_subCategoria
-        }
-      });
-      //subcategoria
+      const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; }) => ({
+          cod: categoria.cod,
+          nombre_cod: categoria.cod
+        })
+      );
+      //subcategoria activos
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           let cod_subCategoria = subCategoria.cod
@@ -62,7 +57,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           }
         });
       });
-      //indicadores
+      //indicadores activos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
@@ -92,7 +87,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           nombre_cod: name_subCategoria
         }
       });
-      //subcategoria
+      //subcategoria pasivos
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           let cod_subCategoria = subCategoria.cod
@@ -106,7 +101,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           }
         });
       });
-      //indicadores
+      //indicadores pasivos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
@@ -136,7 +131,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           nombre_cod: name_subCategoria
         }
       });
-      //subcategoria
+      //subcategoria patrimonio
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           let cod_subCategoria = subCategoria.cod
@@ -150,7 +145,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           }
         });
       });
-      //indicadores
+      //indicadores patrimonio
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
@@ -180,7 +175,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           nombre_cod: name_subCategoria
         }
       });
-      //subcategoria
+      //subcategoria ingreso
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           let cod_subCategoria = subCategoria.cod
@@ -194,7 +189,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           }
         });
       });
-      //indicadores
+      //indicadores ingreso
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
@@ -211,11 +206,11 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.infoSubCategoriaIngreso = dataSubCategoria
       this.infoIndicadoresIngreso = dataIndicadores.flat();
     });
-    //Egreso
+    //Egreso 
     this.data.getCategoryEgreso().subscribe((data) => {
       const { categoria } = data;
       const { sub_categoria } = categoria;
-      //categoria
+      //categoria egreso
       const dataCategoria = sub_categoria.flatMap(function (categoria: { cod: any; nombre_cod: any; }) {
         let cod_subCategoria = categoria.cod
         let name_subCategoria = categoria.nombre_cod
@@ -224,7 +219,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           nombre_cod: name_subCategoria
         }
       });
-      //subcategoria
+      //subcategoria egreso
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           let cod_subCategoria = subCategoria.cod
@@ -238,7 +233,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           }
         });
       });
-      //indicadores
+      //indicadores egreso
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; }) {
@@ -258,8 +253,13 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
 
-  addCategory(){
-    
+  addCategory(){    
+  }
+
+  editCategory(){
+  }
+
+  removeCategory(){
   }
 
 
