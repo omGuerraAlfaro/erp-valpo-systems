@@ -6,7 +6,7 @@
     <ul class="list-unstyled ps-0">
         <strong><small>Menu</small></strong>
         <li class="mb-1">
-            <button routerLink="/home" class="btn btn-toggle-inicio align-items-center rounded" aria-expanded="true">
+            <button routerLink="/home" routerLinkActive="active" class="btn btn-toggle-inicio align-items-center rounded" aria-expanded="true">
                 <img src="../../../assets/icon/house.svg" alt="" class="icon">
                 Inicio
             </button>
@@ -19,7 +19,7 @@
             </button>
             <div class="collapse" id="home-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a class="link-dark rounded" routerLink="/client">Ver Clientes</a></li>
+                    <li><a class="link-dark rounded" routerLink="/client" routerLinkActive="active">Ver Clientes</a></li>
                 </ul>
             </div>
         </li>
@@ -50,8 +50,8 @@
             </button>
             <div class="collapse" id="orders-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a routerLink="/colaboradores" class="link-dark rounded">Colaboradores</a></li>
-                    <li><a routerLink="/remuneraciones" class="link-dark rounded">Remuneraciones</a></li>
+                    <li><a routerLink="/colaboradores" routerLinkActive="active" class="link-dark rounded">Colaboradores</a></li>
+                    <li><a routerLink="/remuneraciones" routerLinkActive="active" class="link-dark rounded">Remuneraciones</a></li>
                 </ul>
             </div>
         </li>

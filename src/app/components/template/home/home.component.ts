@@ -13,25 +13,25 @@ export class HomeComponent implements OnInit {
     {
       name: 'Saldo Anterior Caja Anterior',
       mount: 1000000,
-      date: '2021-01-01',
+      date: '2023-03-24',
       link: 'flujo-caja'
     },
     {
       name: 'Ingresos Menos Costos y Gastos', 
       mount: 1000000,
-      date: '2021-01-01',
+      date: '2023-03-24',
       link: 'flujo-caja'
     },
     {
       name: 'Total Costos y Gastos',
       mount: 1000000,
-      date: '2021-01-01',
+      date: '2023-03-24',
       link: 'flujo-caja'
     },
     {
       name: 'Total Costos de Explotación',
       mount: 1000000,
-      date: '2021-01-01',
+      date: '2023-03-24',
       link: 'flujo-caja'
     }
   ]
