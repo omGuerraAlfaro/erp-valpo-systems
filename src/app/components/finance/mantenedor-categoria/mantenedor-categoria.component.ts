@@ -40,7 +40,7 @@ export class MantenedorCategoriaComponent implements OnInit {
       //categoria
       const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; }) => ({
           cod: categoria.cod,
-          nombre_cod: categoria.cod
+          nombre_cod: categoria.nombre_cod
         })
       );
       //subcategoria activos

@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
         datasets: [{
           label: 'Gasto Mensual',
-          data: [14, 12],
+          data: [14, 12, 13, 11, 12, 13, 14],
           fill: false,
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1
