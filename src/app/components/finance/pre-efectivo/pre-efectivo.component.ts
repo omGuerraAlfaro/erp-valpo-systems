@@ -12,12 +12,14 @@ export class PreEfectivoComponent implements OnInit {
     {
       name: 'Total Gastos Presupuestados',
       mount: 1000000,
-      date: '2021-01-01'
+      date: '2021-01-01',
+      link: 'pre-efectivo'
     },
     {
       name: 'EBITDA',
       mount: 1000000,
-      date: '2021-01-01'
+      date: '2021-01-01',
+      link: 'pre-efectivo'
     }
   ]
   

@@ -10,13 +10,24 @@
     width: 174vh;
 }
 
-.card{
+.cardContenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #cdcdcd;
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     width: 20rem;
 }
 
-.cardContenedor{
-    display: flex;
-    flex-direction: row;  
-    flex-wrap: wrap;
+.card a {
+    text-decoration: none;
+    color: #000;
+    transition: color 0.2s ease-in-out;
+}
+
+.card a:hover {
+    background-color: #d5d5d5;
 }

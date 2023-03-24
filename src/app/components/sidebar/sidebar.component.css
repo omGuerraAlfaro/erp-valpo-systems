@@ -108,3 +108,7 @@ small {
 .active{
     background-color: #8f8f8f;
 }
+
+.badge{
+    font-size: xx-small;
+}

@@ -26,3 +26,22 @@
 .table-wrapper-scroll-y {
     display: block;
 }
+
+
+.content-wrapper-scroll-y {
+    position: relative;
+    height: 92vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.content-custom-scrollbar {
+    display: block;
+}
+
+.btnContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
