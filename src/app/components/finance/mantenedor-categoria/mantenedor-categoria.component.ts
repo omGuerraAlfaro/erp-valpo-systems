@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/interfaces/category';
 import { DataCategoryService } from 'src/app/services/data-category.service';
 import Swal from 'sweetalert2';
+import { CategoryInterface } from 'src/app/interfaces/category';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   infoSubCategoriaPasivo: any;
   infoIndicadoresPasivo: any;
 
-  infoCategoriaPatrimonio: any;
+  infoCategoriaPatrimonio!: CategoryInterface[];
   infoSubCategoriaPatrimonio: any;
   infoIndicadoresPatrimonio: any;
 
