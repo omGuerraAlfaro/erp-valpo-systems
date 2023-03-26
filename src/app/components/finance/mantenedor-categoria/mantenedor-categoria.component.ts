@@ -33,6 +33,10 @@ export class MantenedorCategoriaComponent implements OnInit {
   constructor(private data: DataCategoryService) { }
 
   ngOnInit(): void {
+    this.data.getAllCategory().subscribe((data) => {
+      const { activos, pasivos, patrimonios, ingresos, egresos } = data      
+    });
+
     //activos
     this.data.getCategoryActivo().subscribe((data) => {
       const { categoria } = data;

@@ -39,6 +39,11 @@ export class DataCategoryService {
     return dataCategoria;
   }
 
+  getAllCategory(): Observable<any> {
+    const dataCategoria = this.http.get<CategoryInterface[]>('https://raw.githubusercontent.com/omGuerraAlfaro/json2/main/erp-valpo-system.json');
+    return dataCategoria;
+  }
+
 
 
   
