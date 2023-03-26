@@ -5,7 +5,23 @@
 .posicion{
     position: absolute;
     top: 0px;
-    left: 285px;    
+    left: 205px;    
     height: 94vh;
-    width: 143vh;
+    width: 152vh;
+}
+
+.content-wrapper-scroll-y {
+    position: relative;
+    height: 92vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.content-custom-scrollbar {
+    display: block;
+}
+
+.spacing{
+    letter-spacing: .05rem;
+    padding-left: 17px;
 }

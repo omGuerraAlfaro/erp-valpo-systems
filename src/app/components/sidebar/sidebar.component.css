@@ -112,3 +112,7 @@ small {
 .badge{
     font-size: xx-small;
 }
+
+.dropdown-item{
+    cursor: pointer;
+}
