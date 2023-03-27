@@ -3,52 +3,111 @@
         <h1>Patrimonio</h1>
         <hr>
         <div class="responsive-table">
-            <table class="table table-bordered table-sm table-wrapper">
-                <thead class="text-center">
+            <table class="table table-striped table-bordered table-sm">
+                <thead>
                     <tr>
-                        <th scope="col">Codigo Contable</th>
                         <th scope="col">
-                            <div>Categoria</div>
+                            <div>Cod Contable</div>
                         </th>
                         <th scope="col">
-                            <span>Sub Categoria</span>
+                            <div>Nombre Categoria</div>
                         </th>
                         <th scope="col">
-                            <span>Indicadores</span>
+                            <span>Total</span>
                         </th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let cat of catPatri">
-                    <tr>
+                <tbody>
+                    <tr *ngFor="let cat of catPatri">
                         <th class="text-center" scope="row">{{cat.cod}}</th>
                         <th>{{cat.nombre_cod}}</th>
+                        <th class="spacing">
+                            {{cat.valor | mount}}
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="responsive-table">
+            <table class="table table-bordered table-sm">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">
+                            <div>Sub Categoria</div>
+                        </th>
+                        <th scope="col">
+                            <div>Indicadores</div>
+                        </th>
+                        <th scope="col">
+                            <span>Sub Indicadores</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
                         <td>
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">Codigo Contable</th>
                                         <th scope="col">Detalle</th>
-                                        <th scope="col">Valores</th>
+                                        <th scope="col">Valor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let cat2 of subPatri">
                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                         <td>{{cat2.nombre_cod}}</td>
-                                        <th class="spacing">
-                                            {{cat2.valor | mount}}
-                                        </th>
+                                        <td *ngIf="cat2.valor == 0 else catValor">
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <ng-template #catValor>
+                                            <th class="spacing">
+                                                {{cat2.valor | mount}}
+                                            </th>
+                                        </ng-template>
                                     </tr>
                                 </tbody>
                             </table>
                         </td>
                         <td>
-                            <table class="table table-striped table-sm">
+                            <table class="table table-striped table-sm table-wrapper-scroll-y my-custom-scrollbar">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">Codigo Contable</th>
                                         <th scope="col">Detalle</th>
-                                        <th scope="col">Valores</th>
+                                        <th scope="col">Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let cat2 of subSubPatri">
+                                        <th class="text-center" scope=row>{{cat2.cod}}</th>
+                                        <td>{{cat2.nombre_cod}}</td>
+                                        <td *ngIf="cat2.valor == 0 else catValor">
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </td>
+                                        <ng-template #catValor>
+                                            <th class="spacing">
+                                                {{cat2.valor | mount}}
+                                            </th>
+                                        </ng-template>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                        <td>
+                            <table class="table table-striped table-sm table-wrapper-scroll-y my-custom-scrollbar">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" scope="col">Codigo Contable</th>
+                                        <th scope="col">Detalle</th>
+                                        <th scope="col">Valor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,8 +117,7 @@
                                         <td *ngIf="cat3.valor == 0 else catValor">
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text">$</span>
-                                                <input type="text" class="form-control" id=""
-                                                    placeholder="Ingrese Valor">
+                                                <input type="text" class="form-control">
                                             </div>
                                         </td>
                                         <ng-template #catValor>

@@ -10,6 +10,7 @@ export class ActivosComponent implements OnInit {
 
   catActivo: any;
   subActivo: any;
+  subSubActivo: any;
   indActivo: any;
 
   constructor(public data: DataCategory2Service) { }
@@ -20,7 +21,7 @@ export class ActivosComponent implements OnInit {
       //categoria
       const { categoria } = data;
       const cat = [categoria];
-      cat.map((categoria: { cod: any; nombre_cod: any; valor: any; }) => ({
+      cat.map((categoria: { cod: any; nombre_cod: any; valor: any;}) => ({
         cod: categoria.cod,
         nombre_cod: categoria.nombre_cod,
         valor: categoria.valor
@@ -33,13 +34,13 @@ export class ActivosComponent implements OnInit {
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
       console.log(sub);
-      sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
+      sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub:any; }) => ({
         cod: sub_categoria.cod,
         nombre_cod: sub_categoria.nombre_cod,
         valor: sub_categoria.valor,
         index_sub: sub_categoria.index_sub
       })
-      );
+      );         
       this.subActivo = sub;
       console.log(this.subActivo);
 
@@ -61,8 +62,24 @@ export class ActivosComponent implements OnInit {
       this.indActivo = dataIndicadores.flat();
 
       
-    });;
-  };
+      //sub indicadores activos
+      const dataSubIndex = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; valor:any; index_sub: any; }) {
+        return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; valor:any; indicador: any }) {
+          let cod_indicadores = subCategoria.cod
+          let name_indicadores = subCategoria.nombre_cod
+          let valor_indicadores = subCategoria.valor
+          return {
+            cod: cod_indicadores,
+            nombre_cod: name_indicadores,
+            valor: valor_indicadores,
+          }
+        });
+      });
+      console.log(dataSubIndex);
+      this.subSubActivo = dataSubIndex;
+    });
+
+  }
 
 }
 

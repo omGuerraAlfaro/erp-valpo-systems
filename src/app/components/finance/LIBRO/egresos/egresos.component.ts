@@ -10,9 +10,6 @@ import { DataCategory2Service } from 'src/app/services/data-category2.service';
 })
 export class EgresosComponent implements OnInit {
   
-  catEgreso1: CategoryInterface[] = [];
-
-
   catEgreso: any;
   subEgreso: any;
   subSubEgreso: any;
