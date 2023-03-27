@@ -133,12 +133,10 @@ export class FlujoCajaComponent implements OnInit {
       })
       );
       this.catEgreso = cat;
-      console.log(this.catEgreso);
 
       //subcategoria activos
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
-      console.log(sub);
       sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
         cod: sub_categoria.cod,
         nombre_cod: sub_categoria.nombre_cod,
@@ -147,7 +145,6 @@ export class FlujoCajaComponent implements OnInit {
       })
       );
       this.subEgreso = sub;
-      console.log(this.subEgreso);
 
       //indicadores activos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
@@ -180,7 +177,6 @@ export class FlujoCajaComponent implements OnInit {
           }
         });
       });
-      console.log(dataSubIndex);
       this.subSubEgreso = dataSubIndex;
     });
 
@@ -196,12 +192,10 @@ export class FlujoCajaComponent implements OnInit {
       })
       );
       this.catIngreso = cat;
-      console.log(this.catIngreso);
 
       //subcategoria activos
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
-      console.log(sub);
       sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
         cod: sub_categoria.cod,
         nombre_cod: sub_categoria.nombre_cod,
@@ -210,7 +204,6 @@ export class FlujoCajaComponent implements OnInit {
       })
       );
       this.subIngreso = sub;
-      console.log(this.subIngreso);
 
       //indicadores activos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
@@ -243,7 +236,6 @@ export class FlujoCajaComponent implements OnInit {
           }
         });
       });
-      console.log(dataSubIndex);
       this.subSubIngreso = dataSubIndex;
     });
     

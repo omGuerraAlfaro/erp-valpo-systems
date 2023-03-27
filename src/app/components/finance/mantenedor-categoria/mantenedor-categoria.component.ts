@@ -10,7 +10,6 @@ import { CategoryInterface } from 'src/app/interfaces/category';
   styleUrls: ['./mantenedor-categoria.component.css']
 })
 export class MantenedorCategoriaComponent implements OnInit {
-  master: boolean = false;
 
   infoCategoriaActivo: any;
   infoSubCategoriaActivo: any;
@@ -79,9 +78,7 @@ export class MantenedorCategoriaComponent implements OnInit {
           });
         });
       });
-      this.infoCategoriaActivo = dataCategoria;
-      console.log(this.infoCategoriaActivo);
-      
+      this.infoCategoriaActivo = dataCategoria;      
       this.infoSubCategoriaActivo = dataSubCategoria
       this.infoIndicadoresActivo = dataIndicadores.flat();
     });
