@@ -10,13 +10,13 @@ import Swal from 'sweetalert2';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router){}
 
   ngOnInit(): void {
   }
 
-  
-  logout(){
+
+  logout() {
     Swal.fire({
       title: '¿Estás seguro?',
       text: '¿Deseas Cerrar Sesión?',
@@ -32,6 +32,9 @@ export class SidebarComponent implements OnInit {
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
-    
+
   }
+
+
+
 }

@@ -15,80 +15,16 @@
                         <th scope="col">Detalle</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let tb of table">
                     <tr>
                         <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
+                            <a href="">{{tb.id}}</a>
                         </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
+                        <td>{{tb.dateEmit}}</td>
+                        <td>{{tb.state}}</td>
+                        <td>{{tb.emitFor}}</td>
+                        <td>{{tb.detail}}</td>
                     </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    <tr>
-                        <th class="text-center" scope="row">
-                            <a href="">2312412541</a>
-                        </th>
-                        <td>Miercoles 22 de Marzo</td>
-                        <td>Pendiente</td>
-                        <td>Omar Guerra A.</td>
-                        <td>Compra de insumos informaticos</td>
-                    </tr>
-                    
                 </tbody>
             </table>
         </div>

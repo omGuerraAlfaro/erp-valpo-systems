@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryFacturaComponent implements OnInit {
 
-  constructor() { }
+  table = [
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+  ]
 
-  ngOnInit(): void {
+
+  constructor() { 
   }
+
+  ngOnInit(): void {    
+  }
+  
 
 }
