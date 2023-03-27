@@ -18,7 +18,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let cat of cat">
+                <tbody *ngFor="let cat of catPatri">
                     <tr>
                         <th class="text-center" scope="row">{{cat.cod}}</th>
                         <th>{{cat.nombre_cod}}</th>
@@ -32,7 +32,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let cat2 of sub">
+                                    <tr *ngFor="let cat2 of subPatri">
                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                         <td>{{cat2.nombre_cod}}</td>
                                         <th class="spacing">
@@ -52,7 +52,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let cat3 of ind">
+                                    <tr *ngFor="let cat3 of indPatri">
                                         <th class="text-center" scope="row">{{cat3.cod}}</th>
                                         <td>{{cat3.nombre_cod}}</td>
                                         <td *ngIf="cat3.valor == 0 else catValor">

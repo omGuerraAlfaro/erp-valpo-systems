@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategoryService } from 'src/app/services/data-category.service';
+import { DataCategory2Service } from 'src/app/services/data-category2.service';
 
 @Component({
   selector: 'app-patrimonio',
@@ -8,14 +8,14 @@ import { DataCategoryService } from 'src/app/services/data-category.service';
 })
 export class PatrimonioComponent implements OnInit {
 
-  cat:any;
-  sub:any;
-  ind:any;
-  constructor(public data: DataCategoryService) { }
+  catPatri:any;
+  subPatri:any;
+  indPatri:any;
+  constructor(public data: DataCategory2Service) { }
 
   ngOnInit(): void {
     //activos
-    this.data.getCategoryActivoValor().subscribe((data) => {
+    this.data.getCategoryPatrimonioValor().subscribe((data) => {
       const { categoria } = data;
       const { sub_categoria } = categoria;
       //categoria
@@ -55,12 +55,9 @@ export class PatrimonioComponent implements OnInit {
           });
         });
       });
-      this.cat = dataCategoria;
-      this.sub = dataSubCategoria
-      this.ind = dataIndicadores.flat();
-      console.log(this.cat);
-      console.log(this.sub);
-      
+      this.catPatri = dataCategoria;
+      this.subPatri = dataSubCategoria
+      this.indPatri = dataIndicadores.flat();      
     });
   }
 

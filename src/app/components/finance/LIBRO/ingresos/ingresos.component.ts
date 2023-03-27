@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategoryService } from 'src/app/services/data-category.service';
+import { DataCategory2Service } from 'src/app/services/data-category2.service';
 
 @Component({
   selector: 'app-ingresos',
@@ -8,16 +8,18 @@ import { DataCategoryService } from 'src/app/services/data-category.service';
 })
 export class IngresosComponent implements OnInit {
 
-  cat:any;
-  sub:any;
-  ind:any;
-  constructor(public data: DataCategoryService) { }
+  catIngreso:any;
+  subIngreso:any;
+  indIngreso:any;
+  constructor(public data: DataCategory2Service) { }
 
   ngOnInit(): void {
     //activos
-    this.data.getCategoryActivoValor().subscribe((data) => {
+    this.data.getCategoryIngresoValor().subscribe((data) => {
       const { categoria } = data;
       const { sub_categoria } = categoria;
+      console.log(sub_categoria);
+      
       //categoria
       const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; }) => ({
           cod: categoria.cod,
@@ -55,11 +57,9 @@ export class IngresosComponent implements OnInit {
           });
         });
       });
-      this.cat = dataCategoria;
-      this.sub = dataSubCategoria
-      this.ind = dataIndicadores.flat();
-      console.log(this.cat);
-      console.log(this.sub);
+      this.catIngreso = dataCategoria;
+      this.subIngreso = dataSubCategoria
+      this.indIngreso = dataIndicadores.flat();
       
     });
   }

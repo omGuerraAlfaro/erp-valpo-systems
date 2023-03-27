@@ -11,6 +11,9 @@
                             <div>Categoria</div>
                         </th>
                         <th scope="col">
+                            <span>Saldo</span>
+                        </th>
+                        <th scope="col">
                             <span>Sub Categoria</span>
                         </th>
                         <th scope="col">
@@ -18,41 +21,51 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let cat of cat">
+                <tbody *ngFor="let cat of catActivo">
                     <tr>
                         <th class="text-center" scope="row">{{cat.cod}}</th>
                         <th>{{cat.nombre_cod}}</th>
+                        <th>{{cat.valor | mount }}</th>
                         <td>
                             <table class="table table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">Codigo Contable</th>
                                         <th scope="col">Detalle</th>
-                                        <th scope="col">Valores</th>
+                                        <th scope="col">Valor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let cat2 of sub">
+                                    <tr *ngFor="let cat2 of subActivo">
                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                         <td>{{cat2.nombre_cod}}</td>
-                                        <th class="spacing">
-                                            {{cat2.valor | mount}}
-                                        </th>
+                                        <td *ngIf="cat2.valor == 0 else catValor">
+                                            <div class="input-group has-validation">
+                                                <span class="input-group-text">$</span>
+                                                <input type="text" class="form-control" id=""
+                                                    placeholder="Ingrese Valor">
+                                            </div>
+                                        </td>
+                                        <ng-template #catValor>
+                                            <th class="spacing">
+                                                {{cat2.valor | mount}}
+                                            </th>
+                                        </ng-template>
                                     </tr>
                                 </tbody>
                             </table>
                         </td>
                         <td>
-                            <table class="table table-striped table-sm">
+                            <table class="table table-striped table-sm table-wrapper-scroll-y my-custom-scrollbar">
                                 <thead>
                                     <tr>
                                         <th class="text-center" scope="col">Codigo Contable</th>
                                         <th scope="col">Detalle</th>
-                                        <th scope="col">Valores</th>
+                                        <th scope="col">Valor</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let cat3 of ind">
+                                    <tr *ngFor="let cat3 of indActivo">
                                         <th class="text-center" scope="row">{{cat3.cod}}</th>
                                         <td>{{cat3.nombre_cod}}</td>
                                         <td *ngIf="cat3.valor == 0 else catValor">

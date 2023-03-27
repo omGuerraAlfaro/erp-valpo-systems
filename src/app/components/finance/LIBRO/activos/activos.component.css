@@ -12,7 +12,7 @@
 
 .content-wrapper-scroll-y {
     position: relative;
-    height: 92vh;
+    height: 90vh;
     width: 100%;
     overflow: auto;
 }
@@ -24,4 +24,15 @@
 .spacing{
     letter-spacing: .05rem;
     padding-left: 17px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 65vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategoryService } from 'src/app/services/data-category.service';
+import { DataCategory2Service } from 'src/app/services/data-category2.service';
 
 @Component({
   selector: 'app-activos',
@@ -8,38 +8,41 @@ import { DataCategoryService } from 'src/app/services/data-category.service';
 })
 export class ActivosComponent implements OnInit {
 
-  cat:any;
-  sub:any;
-  ind:any;
-  constructor(public data: DataCategoryService) { }
+  catActivo: any;
+  subActivo: any;
+  indActivo: any;
+
+  constructor(public data: DataCategory2Service) { }
 
   ngOnInit(): void {
     //activos
     this.data.getCategoryActivoValor().subscribe((data) => {
-      const { categoria } = data;
-      const { sub_categoria } = categoria;
       //categoria
-      const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; }) => ({
-          cod: categoria.cod,
-          nombre_cod: categoria.nombre_cod
-        })
+      const { categoria } = data;
+      const cat = [categoria];
+      cat.map((categoria: { cod: any; nombre_cod: any; valor: any; }) => ({
+        cod: categoria.cod,
+        nombre_cod: categoria.nombre_cod,
+        valor: categoria.valor
+      })
       );
-      //subcategoria activos
-      const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
-        return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; valor: any; indicador: any }) {
-          let cod_subCategoria = subCategoria.cod
-          let name_subCategoria = subCategoria.nombre_cod
-          let valor_subCategoria = subCategoria.valor
-          let index_indicador = subCategoria.indicador
-          return {
-            cod: cod_subCategoria,
-            nombre_cod: name_subCategoria,
-            valor: valor_subCategoria,
-            indicador: index_indicador
+      this.catActivo = cat;
+      console.log(this.catActivo);
 
-          }
-        });
-      });
+      //subcategoria activos
+      const { sub_categoria } = categoria;
+      const sub = sub_categoria;
+      console.log(sub);
+      sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
+        cod: sub_categoria.cod,
+        nombre_cod: sub_categoria.nombre_cod,
+        valor: sub_categoria.valor,
+        index_sub: sub_categoria.index_sub
+      })
+      );
+      this.subActivo = sub;
+      console.log(this.subActivo);
+
       //indicadores activos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
@@ -54,14 +57,12 @@ export class ActivosComponent implements OnInit {
             }
           });
         });
-      });
-      this.cat = dataCategoria;
-      this.sub = dataSubCategoria
-      this.ind = dataIndicadores.flat();
-      console.log(this.cat);
-      console.log(this.sub);
+      });;
+      this.indActivo = dataIndicadores.flat();
+
       
-    });
-  }
+    });;
+  };
 
 }
+
