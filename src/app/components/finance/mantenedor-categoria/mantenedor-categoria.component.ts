@@ -10,6 +10,8 @@ import { CategoryInterface } from 'src/app/interfaces/category';
   styleUrls: ['./mantenedor-categoria.component.css']
 })
 export class MantenedorCategoriaComponent implements OnInit {
+  master: boolean = false;
+
   infoCategoriaActivo: any;
   infoSubCategoriaActivo: any;
   infoIndicadoresActivo: any;
@@ -30,11 +32,12 @@ export class MantenedorCategoriaComponent implements OnInit {
   infoSubCategoriaEgreso: any;
   infoIndicadoresEgreso: any;
 
-  constructor(private data: DataCategoryService) { }
+  constructor(private data: DataCategoryService) {
+  }
 
   ngOnInit(): void {
     this.data.getAllCategory().subscribe((data) => {
-      const { activos, pasivos, patrimonios, ingresos, egresos } = data      
+      const { activos, pasivos, patrimonios, ingresos, egresos } = data
     });
 
     //activos
@@ -42,10 +45,12 @@ export class MantenedorCategoriaComponent implements OnInit {
       const { categoria } = data;
       const { sub_categoria } = categoria;
       //categoria
-      const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; }) => ({
-          cod: categoria.cod,
-          nombre_cod: categoria.nombre_cod
-        })
+      const dataCategoria = sub_categoria.map((categoria: { cod: any; nombre_cod: any; valor:any; activo:any; }) => ({
+        cod: categoria.cod,
+        nombre_cod: categoria.nombre_cod,
+        valor: categoria.valor,
+        activo: categoria.activo
+      })
       );
       //subcategoria activos
       const dataSubCategoria = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
@@ -75,6 +80,8 @@ export class MantenedorCategoriaComponent implements OnInit {
         });
       });
       this.infoCategoriaActivo = dataCategoria;
+      console.log(this.infoCategoriaActivo);
+      
       this.infoSubCategoriaActivo = dataSubCategoria
       this.infoIndicadoresActivo = dataIndicadores.flat();
     });
@@ -257,17 +264,20 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
 
-  addCategory(){    
+  addCategory() {
   }
 
-  editCategory(){
+  editCategory() {
   }
 
-  removeCategory(){
+  removeCategory() {
   }
 
-
-
+  
 }
+
+
+
+
 
 
