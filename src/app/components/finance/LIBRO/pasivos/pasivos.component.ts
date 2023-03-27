@@ -16,7 +16,7 @@ export class PasivosComponent implements OnInit {
   constructor(public data: DataCategory2Service) { }
 
   ngOnInit(): void {
-    //activos
+    //Pasivos
     this.data.getCategoryPasivoValor().subscribe((data) => {
       //categoria
       const { categoria } = data;

@@ -18,7 +18,7 @@ export class EgresosComponent implements OnInit {
   constructor(public data: DataCategory2Service) { }
 
   ngOnInit(): void {
-    //activos
+    //Egresos
     this.data.getCategoryEgresoValor().subscribe((data) => {
       //categoria
       const { categoria } = data;

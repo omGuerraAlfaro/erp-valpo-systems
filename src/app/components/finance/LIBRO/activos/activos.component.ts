@@ -18,7 +18,7 @@ export class ActivosComponent implements OnInit {
   ngOnInit(): void {
     //activos
     this.data.getCategoryActivoValor().subscribe((data) => {
-      //categoria
+      //Activos
       const { categoria } = data;
       const cat = [categoria];
       cat.map((categoria: { cod: any; nombre_cod: any; valor: any;}) => ({

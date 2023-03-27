@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
       link: 'flujo-caja'
     },
     {
-      name: 'Ingresos Menos Costos y Gastos', 
+      name: 'Ingresos Menos Costos y Gastos',
       mount: 1000000,
       date: '2023-03-24',
       link: 'flujo-caja'
@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
         maintainAspectRatio: true
       }
     });
-  
+
   }
-  }
+}
 
