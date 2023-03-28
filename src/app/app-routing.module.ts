@@ -1,29 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './components/template/content/content.component';
-import { HomeComponent } from './components/template/home/home.component';
-import { LoginComponent } from './components/template/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 //Cliente
 import { ClientComponent } from './components/client/client.component';
 
 //Finanzas
 import { FacturaComponent } from './components/finance/factura/factura.component';
-import { CategoryFacturaComponent } from './components/category-factura/category-factura.component';
+import { CategoryFacturaComponent } from './components/finance/category-factura/category-factura.component';
 import { OrdenCompraComponent } from './components/finance/orden-compra/orden-compra.component';
 import { FlujoCajaComponent } from './components/finance/flujo-caja/flujo-caja.component';
 import { FlujoEfectivoComponent } from './components/finance/flujo-efectivo/flujo-efectivo.component';
 import { PreEfectivoComponent } from './components/finance/pre-efectivo/pre-efectivo.component';
 import { MantenedorCategoriaComponent } from './components/finance/mantenedor-categoria/mantenedor-categoria.component';
 //Libro de Banco
-import { LibroBancoComponent } from './components/finance/libro-banco/libro-banco.component';
+import { LibroBancoComponent } from './components/finance/LIBRO/libro-banco/libro-banco.component';
 import { ActivosComponent } from './components/finance/LIBRO/activos/activos.component';
 import { PasivosComponent } from './components/finance/LIBRO//pasivos/pasivos.component';
 import { PatrimonioComponent } from './components/finance/LIBRO//patrimonio/patrimonio.component';
 import { IngresosComponent } from './components/finance/LIBRO//ingresos/ingresos.component';
 import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.component';
-import { ColaboradoresComponent } from './components/colaboradores/colaboradores.component';
-import { RemuneracionesComponent } from './components/remuneraciones/remuneraciones.component';
+import { ColaboradoresComponent } from './components/rrhh/colaboradores/colaboradores.component';
+import { RemuneracionesComponent } from './components/rrhh/remuneraciones/remuneraciones.component';
 //recursos humanos
 
 

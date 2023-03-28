@@ -1,0 +1,38 @@
+.color{
+    background-color: #f5f5f5;
+}
+
+.posicion{
+    position: absolute;
+    top: 0px;
+    left: 205px;    
+    height: 94vh;
+    width: 152vh;
+}
+
+.content-wrapper-scroll-y {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.content-custom-scrollbar {
+    display: block;
+}
+
+.spacing{
+    letter-spacing: .05rem;
+    padding-left: 17px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 65vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
