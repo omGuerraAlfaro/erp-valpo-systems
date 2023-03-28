@@ -12,6 +12,7 @@ export class Sidebar2Component implements OnInit {
   patrimonio = false;
   ingreso = false;
   egreso = false;
+  resumen = true;
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class Sidebar2Component implements OnInit {
     this.patrimonio = false;
     this.ingreso = false;
     this.egreso = false;
+    this.resumen = false;
   }
 
   pasivoClick() {
@@ -40,6 +42,7 @@ export class Sidebar2Component implements OnInit {
     this.patrimonio = !this.patrimonio;
     this.ingreso = false;
     this.egreso = false;
+    this.resumen = false;
   }
 
   ingresoClick() {
@@ -48,6 +51,7 @@ export class Sidebar2Component implements OnInit {
     this.patrimonio = false;
     this.ingreso = !this.ingreso;
     this.egreso = false;
+    this.resumen = false;
   }
 
   egresoClick() {
@@ -56,7 +60,16 @@ export class Sidebar2Component implements OnInit {
     this.patrimonio = false;
     this.ingreso = false;
     this.egreso = !this.egreso;
+    this.resumen = false;    
   }
 
+  resumenClick() {
+    this.activo = false;
+    this.pasivo = false;
+    this.patrimonio = false;
+    this.ingreso = false;
+    this.egreso = false;
+    this.resumen = !this.resumen;    
+  }
 
 }

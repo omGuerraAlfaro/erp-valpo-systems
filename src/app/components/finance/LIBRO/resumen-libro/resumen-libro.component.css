@@ -12,7 +12,7 @@
 
 .content-wrapper-scroll-y {
     position: relative;
-    height: 90vh;
+    height: 93vh;
     width: 100%;
     overflow: auto;
 }

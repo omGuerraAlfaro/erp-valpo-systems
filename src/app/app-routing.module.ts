@@ -24,6 +24,7 @@ import { IngresosComponent } from './components/finance/LIBRO//ingresos/ingresos
 import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.component';
 import { ColaboradoresComponent } from './components/rrhh/colaboradores/colaboradores.component';
 import { RemuneracionesComponent } from './components/rrhh/remuneraciones/remuneraciones.component';
+import { ResumenLibroComponent } from './components/finance/LIBRO/resumen-libro/resumen-libro.component';
 //recursos humanos
 
 
@@ -51,7 +52,8 @@ const routes: Routes = [
       { path: 'activos', component: ActivosComponent },
       { path: 'patrimonio', component: PatrimonioComponent },
       { path: 'ingresos', component: IngresosComponent },
-      { path: 'egresos', component: EgresosComponent }
+      { path: 'egresos', component: EgresosComponent },
+      { path: 'resumen-libro', component: ResumenLibroComponent},
     ]
   },
   { path: 'colaboradores', component: ColaboradoresComponent},
