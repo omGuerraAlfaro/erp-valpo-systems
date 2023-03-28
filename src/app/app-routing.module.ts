@@ -4,8 +4,9 @@ import { ContentComponent } from './components/template/content/content.componen
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 
-//Cliente
-import { ClientComponent } from './components/client/client.component';
+//Cliente Proveedor
+import { ClientComponent } from './components/clientes-proveedores/client/client.component';
+import { ProveedorComponent } from './components/clientes-proveedores/proveedor/proveedor.component';
 
 //Finanzas
 import { FacturaComponent } from './components/finance/factura/factura.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'client', component: ClientComponent },
+  { path: 'proveedor', component: ProveedorComponent},
   { path: 'factura', component: FacturaComponent },
   { path: 'category-factura', component: CategoryFacturaComponent },
   { path: 'orden-compra', component: OrdenCompraComponent },

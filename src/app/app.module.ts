@@ -15,7 +15,7 @@ import { ContentComponent } from './components/template/content/content.componen
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 //Clientes
-import { ClientComponent } from './components/client/client.component';
+import { ClientComponent } from './components/clientes-proveedores/client/client.component';
 //Finanzas
 import { FacturaComponent } from './components/finance/factura/factura.component';
 import { OrdenCompraComponent } from './components/finance/orden-compra/orden-compra.component';
@@ -35,6 +35,7 @@ import { MantenedorCategoriaComponent } from './components/finance/mantenedor-ca
 import { ColaboradoresComponent } from './components/rrhh/colaboradores/colaboradores.component';
 import { RemuneracionesComponent } from './components/rrhh/remuneraciones/remuneraciones.component';
 import { ResumenLibroComponent } from './components/finance/LIBRO/resumen-libro/resumen-libro.component';
+import { ProveedorComponent } from './components/clientes-proveedores/proveedor/proveedor.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ResumenLibroComponent } from './components/finance/LIBRO/resumen-libro/
     RemuneracionesComponent,
     ColaboradoresComponent,
     MountPipe,
-    ResumenLibroComponent
+    ResumenLibroComponent,
+    ProveedorComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class Sidebar2Component implements OnInit {
   patrimonio = false;
   ingreso = false;
   egreso = false;
-  resumen = true;
+  resumen = false;
 
   constructor() { }
 

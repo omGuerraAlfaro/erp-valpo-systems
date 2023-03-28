@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-resumen-libro',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumenLibroComponent implements OnInit {
 
-  constructor() { }
+  valor = 0;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
+
+  eliminar() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Deseas eliminar el movimiento seleccionado?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/resumen-libro']);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
+
+  }
 }

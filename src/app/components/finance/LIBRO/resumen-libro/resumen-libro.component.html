@@ -24,7 +24,8 @@
                         <h6 class="my-0 fw-normal">Opciones Generales</h6>
                     </div>
                     <div class="card-body d-flex mx-auto">
-                        <button type="button" class="w-30 btn btn-lg btn-outline-primary my-1 mx-1 py-1">Nuevo Movimiento</button>
+                        <button type="button" class="w-30 btn btn-lg btn-outline-primary my-1 mx-1 py-1"
+                            data-bs-toggle="modal" data-bs-target="#movimientoModal">Nuevo Movimiento</button>
                         <button type="button" class="w-30 btn btn-lg btn-primary my-1 mx-1 py-1">Cerrar Mes</button>
                     </div>
                 </div>
@@ -54,14 +55,31 @@
                         <td scope="col">Omar Guerra A.</td>
                         <td scope="col">Compra de insumos informaticos</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                    </path>
-                                </svg>
-                            </button>
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -71,14 +89,31 @@
                         <td scope="col">Omar Guerra A.</td>
                         <td scope="col">Compra de insumos informaticos</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                    </path>
-                                </svg>
-                            </button>
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -88,14 +123,31 @@
                         <td scope="col">Omar Guerra A.</td>
                         <td scope="col">Compra de insumos informaticos</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                    </path>
-                                </svg>
-                            </button>
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -105,14 +157,31 @@
                         <td scope="col">Omar Guerra A.</td>
                         <td scope="col">Compra de insumos informaticos</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                    </path>
-                                </svg>
-                            </button>
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -122,22 +191,403 @@
                         <td scope="col">Omar Guerra A.</td>
                         <td scope="col">Compra de insumos informaticos</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
-                                    class="bi bi-three-dots" viewBox="0 0 16 16">
-                                    <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                    </path>
-                                </svg>
-                            </button>
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
-                    
-                    
-
-
+                    <tr>
+                        <th scope="col" class="text-center">123123123</th>
+                        <td scope="col">Miercoles 22 de Marzo</td>
+                        <td scope="col">Pendiente</td>
+                        <td scope="col">Omar Guerra A.</td>
+                        <td scope="col">Compra de insumos informaticos</td>
+                        <td scope="col" class="text-center">
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-center">123123123</th>
+                        <td scope="col">Miercoles 22 de Marzo</td>
+                        <td scope="col">Pendiente</td>
+                        <td scope="col">Omar Guerra A.</td>
+                        <td scope="col">Compra de insumos informaticos</td>
+                        <td scope="col" class="text-center">
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-center">123123123</th>
+                        <td scope="col">Miercoles 22 de Marzo</td>
+                        <td scope="col">Pendiente</td>
+                        <td scope="col">Omar Guerra A.</td>
+                        <td scope="col">Compra de insumos informaticos</td>
+                        <td scope="col" class="text-center">
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-center">123123123</th>
+                        <td scope="col">Miercoles 22 de Marzo</td>
+                        <td scope="col">Pendiente</td>
+                        <td scope="col">Omar Guerra A.</td>
+                        <td scope="col">Compra de insumos informaticos</td>
+                        <td scope="col" class="text-center">
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="text-center">123123123</th>
+                        <td scope="col">Miercoles 22 de Marzo</td>
+                        <td scope="col">Pendiente</td>
+                        <td scope="col">Omar Guerra A.</td>
+                        <td scope="col">Compra de insumos informaticos</td>
+                        <td scope="col" class="text-center">
+                            <div class="dropdown">
+                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light border mx-auto">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+                                    aria-labelledby="dropdownUser1">
+                                    <li>
+                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal agregar Movimiento -->
+<div class="modal fade" id="movimientoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header border-bottom-0">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Categorizar Factura</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <select class="form-select" id="categoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>Activo</option>
+                            <option>Pasivo</option>
+                            <option>Patrimonio</option>
+                            <option>Ingreso</option>
+                            <option>Egreso</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Sub Categoria</label>
+                        <select class="form-select" id="subcategoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"SubCategoria de Activos"</option>
+                            <option>"SubCategoria de Pasivos"</option>
+                            <option>"SubCategoria de Patrimonio</option>
+                            <option>"SubCategoria de Ingreso"</option>
+                            <option>"SubCategoria de Egreso"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Indice</label>
+                        <select class="form-select" id="categoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"Indice de subActivos"</option>
+                            <option>"Indice de subPasivos"</option>
+                            <option>"Indice de subPatrimonios"</option>
+                            <option>"Indice de subIngresos"</option>
+                            <option>"Indice de subEgresos"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Sub Indice</label>
+                        <select class="form-select" id="subcategoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"SubIndice de indiceActivos"</option>
+                            <option>"SubIndice de indicePasivos"</option>
+                            <option>"SubIndice de indicePatrimonio</option>
+                            <option>"SubIndice de indiceIngreso"</option>
+                            <option>"SubIndice de indiceEgreso"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Descripción</label>
+                        <div class="input-group has-validation">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Monto</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer flex-column border-top-0">
+                <button type="button" class="btn btn-primary w-100 mx-0 mb-2">Guardar Movimiento</button>
+                <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Editar Movimiento -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content rounded-4 shadow">
+            <div class="modal-header border-bottom-0">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Categorización</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <select class="form-select" id="categoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>Activo</option>
+                            <option>Pasivo</option>
+                            <option>Patrimonio</option>
+                            <option>Ingreso</option>
+                            <option>Egreso</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Sub Categoria</label>
+                        <select class="form-select" id="subcategoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"SubCategoria de Activos"</option>
+                            <option>"SubCategoria de Pasivos"</option>
+                            <option>"SubCategoria de Patrimonio</option>
+                            <option>"SubCategoria de Ingreso"</option>
+                            <option>"SubCategoria de Egreso"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Indice</label>
+                        <select class="form-select" id="categoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"Indice de subActivos"</option>
+                            <option>"Indice de subPasivos"</option>
+                            <option>"Indice de subPatrimonios"</option>
+                            <option>"Indice de subIngresos"</option>
+                            <option>"Indice de subEgresos"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Sub Indice</label>
+                        <select class="form-select" id="subcategoria" required>
+                            <option value="">Seleccione...</option>
+                            <option>"SubIndice de indiceActivos"</option>
+                            <option>"SubIndice de indicePasivos"</option>
+                            <option>"SubIndice de indicePatrimonio</option>
+                            <option>"SubIndice de indiceIngreso"</option>
+                            <option>"SubIndice de indiceEgreso"</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Descripción</label>
+                        <div class="input-group has-validation">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="subcategoria" class="form-label">Monto</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="invalid-feedback">
+                            Porfavor seleccione un valor.
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer flex-column border-top-0">
+                <button type="button" class="btn btn-primary w-100 mx-0 mb-2">Confirmar Cambios</button>
+                <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal">Cerrar</button>
+            </div>
         </div>
     </div>
 </div>
