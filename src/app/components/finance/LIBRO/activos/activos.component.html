@@ -58,17 +58,9 @@
                                     <tr *ngFor="let cat2 of subActivo">
                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                         <td>{{cat2.nombre_cod}}</td>
-                                        <td *ngIf="cat2.valor == 0 else catValor">
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text">$</span>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </td>
-                                        <ng-template #catValor>
-                                            <th class="spacing">
-                                                {{cat2.valor | mount}}
-                                            </th>
-                                        </ng-template>
+                                        <th class="spacing">
+                                            {{cat2.valor | mount}}
+                                        </th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -86,17 +78,9 @@
                                     <tr *ngFor="let cat2 of subSubActivo">
                                         <th class="text-center" scope=row>{{cat2.cod}}</th>
                                         <td>{{cat2.nombre_cod}}</td>
-                                        <td *ngIf="cat2.valor == 0 else catValor">
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text">$</span>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </td>
-                                        <ng-template #catValor>
-                                            <th class="spacing">
-                                                {{cat2.valor | mount}}
-                                            </th>
-                                        </ng-template>
+                                        <th class="spacing">
+                                            {{cat2.valor | mount}}
+                                        </th>
                                     </tr>
                                 </tbody>
                             </table>
@@ -114,17 +98,9 @@
                                     <tr *ngFor="let cat3 of indActivo">
                                         <th class="text-center" scope="row">{{cat3.cod}}</th>
                                         <td>{{cat3.nombre_cod}}</td>
-                                        <td *ngIf="cat3.valor == 0 else catValor">
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text">$</span>
-                                                <input type="text" class="form-control">
-                                            </div>
-                                        </td>
-                                        <ng-template #catValor>
-                                            <th class="spacing">
-                                                {{cat3.valor | mount}}
-                                            </th>
-                                        </ng-template>
+                                        <th class="spacing">
+                                            {{cat3.valor | mount}}
+                                        </th>
                                     </tr>
                                 </tbody>
                             </table>
