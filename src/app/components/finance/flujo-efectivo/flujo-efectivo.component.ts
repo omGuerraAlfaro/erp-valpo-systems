@@ -151,7 +151,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.catEgreso = cat;
 
-      //subcategoria activos
+      //subcategoria Egreso
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
       sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
@@ -163,7 +163,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.subEgreso = sub;
 
-      //indicadores activos
+      //indicadores Egreso
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; valor: any; }) {
@@ -181,7 +181,7 @@ export class FlujoEfectivoComponent implements OnInit {
       this.indEgreso = dataIndicadores.flat();
 
 
-      //sub indicadores activos
+      //sub indicadores Egreso
       const dataSubIndex = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; valor: any; indicador: any }) {
           let cod_indicadores = subCategoria.cod
@@ -210,7 +210,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.catIngreso = cat;
 
-      //subcategoria activos
+      //subcategoria Ingresos
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
       sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
@@ -222,7 +222,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.subIngreso = sub;
 
-      //indicadores activos
+      //indicadores Ingresos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; valor: any; }) {
@@ -240,7 +240,7 @@ export class FlujoEfectivoComponent implements OnInit {
       this.indIngreso = dataIndicadores.flat();
 
 
-      //sub indicadores activos
+      //sub indicadores Ingresos
       const dataSubIndex = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; valor: any; indicador: any }) {
           let cod_indicadores = subCategoria.cod
@@ -329,7 +329,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.catPasivo = cat;
 
-      //subcategoria activos
+      //subcategoria Pasivos
       const { sub_categoria } = categoria;
       const sub = sub_categoria;
       sub.filter((sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) => ({
@@ -341,7 +341,7 @@ export class FlujoEfectivoComponent implements OnInit {
       );
       this.subPasivo = sub;
 
-      //sub indicadores activos
+      //sub indicadores Pasivos
             const dataSubIndex = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; valor: any; index_sub: any; }) {
               return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; valor: any; indicador: any }) {
                 let cod_indicadores = subCategoria.cod
@@ -356,7 +356,7 @@ export class FlujoEfectivoComponent implements OnInit {
             });
             this.subSubPasivo = dataSubIndex;
 
-      //indicadores activos
+      //indicadores Pasivos
       const dataIndicadores = sub_categoria.flatMap(function (sub_categoria: { cod: any; nombre_cod: any; index_sub: any; }) {
         return sub_categoria.index_sub.map(function (subCategoria: { cod: any; nombre_cod: any; indicador: any }) {
           return subCategoria.indicador.map(function (indicador: { cod: any; nombre_cod: any; valor: any; }) {

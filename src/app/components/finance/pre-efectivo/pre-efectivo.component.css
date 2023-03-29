@@ -49,3 +49,38 @@
     background-color: #e1e1e1;
     border-radius: 10px;
 }
+
+.linkColor{
+    color: #000;
+}
+
+.linkColor:hover{
+    color: #8d8585;
+}
+
+.content-wrapper-scroll-y {
+    position: relative;
+    height: 93vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.content-custom-scrollbar {
+    display: block;
+}
+
+.spacing{
+    letter-spacing: .05rem;
+    padding-left: 17px;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 60vh;
+    width: 100%;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}

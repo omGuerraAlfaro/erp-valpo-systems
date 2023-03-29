@@ -10,12 +10,10 @@ import Swal from 'sweetalert2';
 })
 export class ResumenLibroComponent implements OnInit {
 
-  valor = 0;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
 
   eliminar() {
     Swal.fire({
@@ -31,6 +29,20 @@ export class ResumenLibroComponent implements OnInit {
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
-
+  }
+  cerrarMes() {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: '¿Deseas cerrar el mes actual?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, Cerrar Mes',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/resumen-libro']);
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
   }
 }
