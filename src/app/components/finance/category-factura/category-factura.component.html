@@ -1,49 +1,73 @@
 <div class="color posicion border">
-    <div class="container-fluid">
-        <h1>Categorizador de Facturas</h1>
+    <div class="container content-wrapper-scroll-y content-custom-scrollbar">
+        <div>
+            <h1>Categorizador de Movimientos vTiger</h1>
+        </div>
+        <hr>
+        <br>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header py-1">
+                        <h6 class="my-0 fw-normal">Filtro</h6>
+                    </div>
+                    <div class="card-body d-flex">
+                        <input id="startDate" class="form-control" type="date" />
+                        <button type="button" class="w-30 btn btn-lg btn-primary my-1 mx-1 py-1">OK</button>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-outline-primary m-1">Volver al Mes Actual</button>
+                </div>
+            </div>
+        </div>
+
+
         <hr>
         <div class="responsive-table container">
-            <h5>Por Categorizar</h5>
-            <small>Facturas Ingresadas en Plataforma Vtiger</small>
+            <h5>Movimientos por Categorizar:</h5>
             <table class="table table-bordered table-striped table-sm">
                 <thead>
                     <tr>
-                        <th scope="col">N° Factura</th>
+                        <th scope="col" class="text-center">Id Movimiento</th>
                         <th scope="col">Fecha Emisión</th>
                         <th scope="col">Estado</th>
-                        <th scope="col">Creada Por</th>
+                        <th scope="col">Emitida por</th>
                         <th scope="col">Detalle</th>
+                        <th scope="col" class="text-center">Opciones</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let tb of table">
+                <tbody *ngFor="let tab of table">
                     <tr>
-                        <th class="text-center" scope="row" data-bs-toggle="modal" data-bs-target="#activosModal">
-                            <a routerLink="#">{{tb.id}}</a>
-                        </th>
-                        <td>{{tb.dateEmit}}</td>
-                        <td>{{tb.state}}</td>
-                        <td>{{tb.emitFor}}</td>
-                        <td>{{tb.detail}}</td>
-                    </tr>
+                        <th scope="col" class="text-center">{{tab.id}}</th>
+                        <td scope="col">{{tab.dateEmit}}</td>
+                        <td scope="col">{{tab.state}}</td>
+                        <td scope="col">{{tab.emitFor}}</td>
+                        <td scope="col">{{tab.detail}}</td>
+                        <td scope="col" class="text-center">
+                            <button type="button" class="btn btn-light border mx-auto" data-bs-toggle="modal" data-bs-target="#categorizarModal">
+                                Categorizar
+                            </button>
+                        </td>
+                    </tr>                    
                 </tbody>
             </table>
-        </div> 
+        </div>
     </div>
 </div>
 
 
 
-<!-- Modal agregar activos -->
-<div class="modal fade" id="activosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- Modal agregar Movimiento -->
+<div class="modal fade" id="categorizarModal" tabindex="-1" aria-labelledby="categorizarModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content rounded-4 shadow">
             <div class="modal-header border-bottom-0">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Categorizar Factura</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Categorizar Movimiento</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <div class="row g-3"> 
+                <div class="row g-3">
                     <div class="col-md-6">
                         <label for="categoria" class="form-label">Categoria</label>
                         <select class="form-select" id="categoria" required>
@@ -71,7 +95,7 @@
                         <div class="invalid-feedback">
                             Porfavor seleccione un valor.
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col-md-6">
                         <label for="categoria" class="form-label">Indice</label>
                         <select class="form-select" id="categoria" required>
@@ -99,7 +123,7 @@
                         <div class="invalid-feedback">
                             Porfavor seleccione un valor.
                         </div>
-                    </div>                    
+                    </div>
                 </div>
 
 
