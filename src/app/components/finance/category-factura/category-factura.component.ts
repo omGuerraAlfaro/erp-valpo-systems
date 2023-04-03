@@ -10,15 +10,15 @@ import Swal from 'sweetalert2';
 export class CategoryFacturaComponent implements OnInit {
 
   table = [
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
-    { id: 13243245, dateEmit: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
+    { id: 13243245, dateEmit: '2023-03-01', datePay: '2023-03-01', state: 'Emitida', emitFor: 'Omar Guerra', detail: 'Insumos Informaticos' },
   ]
 
 
