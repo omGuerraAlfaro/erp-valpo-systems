@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 @Component({
   selector: 'app-pasivos',
@@ -13,7 +13,7 @@ export class PasivosComponent implements OnInit {
   subSubPasivo: any;
   indPasivo: any;
 
-  constructor(public data: DataCategory2Service) { }
+  constructor(public data: CategoriaServiceService) { }
 
   ngOnInit(): void {
     //Pasivos

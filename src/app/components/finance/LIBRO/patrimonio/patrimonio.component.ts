@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 @Component({
   selector: 'app-patrimonio',
@@ -12,7 +12,8 @@ export class PatrimonioComponent implements OnInit {
   subPatri:any;
   subSubPatri:any;
   indPatri:any;
-  constructor(public data: DataCategory2Service) { }
+  
+  constructor(public data: CategoriaServiceService) { }
 
   ngOnInit(): void {
     //activos

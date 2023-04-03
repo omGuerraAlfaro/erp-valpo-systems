@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 @Component({
   selector: 'app-ingresos',
@@ -12,7 +12,7 @@ export class IngresosComponent implements OnInit {
   subIngreso:any;
   subSubIngreso:any;
   indIngreso:any;
-  constructor(public data: DataCategory2Service) { }
+  constructor(public data: CategoriaServiceService) { }
 
   ngOnInit(): void {
     //Ingresos

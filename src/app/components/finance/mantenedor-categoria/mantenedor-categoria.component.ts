@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 
 @Component({
@@ -85,7 +85,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   subSubPatri: any;
   indPatri: any;
 
-  constructor(private data: DataCategory2Service) {
+  constructor(private data: CategoriaServiceService) {
   }
 
   ngOnInit(): void {

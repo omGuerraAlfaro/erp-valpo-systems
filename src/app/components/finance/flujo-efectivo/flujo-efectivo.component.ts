@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
 import Chart from 'chart.js/auto';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 
 @Component({
@@ -81,7 +81,7 @@ export class FlujoEfectivoComponent implements OnInit {
   subSubPasivo: any;
   indPasivo: any;
 
-  constructor(public data: DataCategory2Service) { }
+  constructor(public data: CategoriaServiceService) { }
 
   ngOnInit(): void {
     const myChart = new Chart('myChart', {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { DataCategory2Service } from 'src/app/services/data-category2.service';
+import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
 
 @Component({
   selector: 'app-pre-efectivo',
@@ -40,7 +40,7 @@ export class PreEfectivoComponent implements OnInit {
   indActivo: any;
   
 
-  constructor(private data: DataCategory2Service){ }
+  constructor(private data: CategoriaServiceService){ }
 
   ngOnInit(): void {
     //chart 1
