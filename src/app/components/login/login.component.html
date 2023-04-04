@@ -3,14 +3,16 @@
     <img class="mb-4" src="../../../../assets/img/valpo.png" alt="" width="200">
     <h1 class="h3 font-weight-normal">Inicio de Sesión</h1>
     <small class="mb-3 text-muted">Bienvenido. Ingrese sus credeciales para acceder a su cuenta</small>
-    <label for="inputEmail" class="sr-only">Email Corpotativo</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="user@valposystems.com" required autofocus>
-    <label for="inputPassword" class="sr-only">Contraseña</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Mantener Sesión Iniciada
-      </label>
-    </div>
-    <button class="btn btn-lg btn-primary btn-block" (click)="login()" type="submit">Sign in</button>
+    <form [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
+      <label for="inputEmail" class="sr-only">Email Corpotativo</label>
+      <input type="email" id="inputEmail" formControlName="email" class="form-control" placeholder="user@valposystems.com" required autofocus>
+      <label for="inputPassword" class="sr-only">Contraseña</label>
+      <input type="password" id="inputPassword" formControlName="password" class="form-control" placeholder="Contraseña" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Mantener Sesión Iniciada
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </form>
 </div>

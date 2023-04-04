@@ -26,6 +26,7 @@ import { EgresosComponent } from './components/finance/LIBRO//egresos/egresos.co
 import { ColaboradoresComponent } from './components/rrhh/colaboradores/colaboradores.component';
 import { RemuneracionesComponent } from './components/rrhh/remuneraciones/remuneraciones.component';
 import { ResumenLibroComponent } from './components/finance/LIBRO/resumen-libro/resumen-libro.component';
+import { AuthGuard } from './auth.guard';
 //recursos humanos
 
 
@@ -34,8 +35,8 @@ import { ResumenLibroComponent } from './components/finance/LIBRO/resumen-libro/
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'client', component: ClientComponent },
   { path: 'proveedor', component: ProveedorComponent},
   { path: 'factura', component: FacturaComponent },
@@ -59,7 +60,8 @@ const routes: Routes = [
     ]
   },
   { path: 'colaboradores', component: ColaboradoresComponent},
-  { path: 'remuneraciones', component: RemuneracionesComponent}
+  { path: 'remuneraciones', component: RemuneracionesComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] }
 
 ];
 

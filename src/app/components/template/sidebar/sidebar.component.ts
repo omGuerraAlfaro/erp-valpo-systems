@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import Swal from 'sweetalert2';
 
 
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private auth: AuthService){}
 
   ngOnInit(): void {
   }
@@ -26,13 +27,13 @@ export class SidebarComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-        this.router.navigate(['/login']);
-        localStorage.removeItem('ingresado');
-        location.reload();
+        this.auth.logout();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
 
+
+    
   }
 
 

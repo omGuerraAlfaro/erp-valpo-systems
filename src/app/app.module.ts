@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import 'bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { MountPipe } from './pipes/mount.pipe';
 
 import { SidebarComponent } from './components/template/sidebar/sidebar.component';
@@ -69,7 +70,9 @@ import { ProveedorComponent } from './components/clientes-proveedores/proveedor/
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
