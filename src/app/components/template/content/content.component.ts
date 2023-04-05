@@ -12,6 +12,8 @@ export class ContentComponent implements OnInit {
     this.isLogged = localStorage.getItem('User') !== null ? true : false;
     if(this.isLogged){
       this.router.navigate(['/home']);
+    }else{
+      this.router.navigate(['/login']);
     }
   }
 
