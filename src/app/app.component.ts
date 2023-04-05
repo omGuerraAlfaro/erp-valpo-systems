@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'erp-valpo-systems';
-  user= false;
   constructor(private router: Router) {
-
   }
 }

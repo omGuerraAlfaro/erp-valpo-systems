@@ -23,12 +23,12 @@ export class LoginComponent implements OnInit {
     console.log(this.loginGroup.value);
     const {email, password} = this.loginGroup.value
     if (email && password) {
-      this.auth.login(email, password).subscribe((data) => {
+      this.auth.login(email, password).subscribe((data: any) => {
         if(data[0]){
           const [ user ] = data;
           localStorage.setItem('User', user);
           this.router.navigate(['/home']);
-          //location.reload();
+          location.reload();
         }
       });
     }

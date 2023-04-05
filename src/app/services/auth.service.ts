@@ -21,7 +21,7 @@ export class AuthService {
     if(localStorage.getItem('User') === null){
       return false;
     }else{
-      return true;
+      return true;      
     }
   }
 }

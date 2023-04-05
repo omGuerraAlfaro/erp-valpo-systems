@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-
-  constructor() { }
+  isLogged = false;
+  constructor(private router: Router) { 
+    this.isLogged = localStorage.getItem('User') !== null ? true : false;
+    if(this.isLogged){
+      this.router.navigate(['/home']);
+    }
+  }
 
   ngOnInit(): void {
   }

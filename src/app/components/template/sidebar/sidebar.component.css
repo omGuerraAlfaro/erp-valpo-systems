@@ -116,3 +116,7 @@ small {
 .dropdown-item{
     cursor: pointer;
 }
+
+.dropdown{
+    cursor: pointer;
+}

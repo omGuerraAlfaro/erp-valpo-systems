@@ -28,6 +28,7 @@ export class SidebarComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.auth.logout();
+        location.reload();
       } else if (result.dismiss === Swal.DismissReason.cancel) {
       }
     });
