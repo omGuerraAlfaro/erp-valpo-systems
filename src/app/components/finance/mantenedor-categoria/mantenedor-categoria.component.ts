@@ -111,16 +111,10 @@ export class MantenedorCategoriaComponent implements OnInit {
     });
   }
 
-
-  public onCheckboxChange(isChecked: any) {
-    this.checked = isChecked
-
-  }
-
   click(any: any) {
-    console.log("hola", any);
-    
+    console.log(any);    
   }
+
   addCategory() {
   }
 
