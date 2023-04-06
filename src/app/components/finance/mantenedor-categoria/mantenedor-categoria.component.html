@@ -47,8 +47,8 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let cat of catActivo">
-                                <th class="text-center" scope="row">{{cat.cod}}</th>
-                                <th>{{cat.nombre_cod}}</th>
+                                <th class="text-center" scope="row">{{cat.cod_contable}}</th>
+                                <th>{{cat.descripcion}}</th>
                             </tr>
                         </tbody>
                     </table>
@@ -116,12 +116,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let cat2 of subActivo">
+                                            <tr *ngFor="let cat2 of subCatActivo">
                                                 <td>
                                                     <input type="checkbox" name="chkCodContable">
                                                 </td>
-                                                <th class="text-center" scope=row>{{cat2.cod}}</th>
-                                                <td>{{cat2.nombre_cod}}</td>
+                                                <th class="text-center" scope=row>{{cat2.cod_contable}}</th>
+                                                <td>{{cat2.descripcion}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -137,12 +137,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let cat2 of subSubActivo">
+                                            <tr *ngFor="let cat2 of indActivo">
                                                 <td>
                                                     <input type="checkbox" name="chkCodContable">
                                                 </td>
-                                                <th class="text-center" scope=row>{{cat2.cod}}</th>
-                                                <td>{{cat2.nombre_cod}}</td>
+                                                <th class="text-center" scope=row>{{cat2.cod_contable}}</th>
+                                                <td>{{cat2.descripcion}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -158,13 +158,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let cat3 of indActivo">
-                                                <td>
-                                                    <input type="checkbox" name="chkCodContable">
-                                                </td>
-                                                <th class="text-center" scope="row">{{cat3.cod}}</th>
-                                                <td>{{cat3.nombre_cod}}</td>
-                                            </tr>
+                                            <div *ngFor="let cat3 of subIndActivo">
+                                                <button (click)="click(cat3)">
+                                                    <tr>
+                                                        <th class="text-center" scope="row">{{cat3.cod_contable}}</th>
+                                                        <td>{{cat3.descripcion}}</td>
+                                                    </tr>
+                                                </button>
+                                            </div>
                                         </tbody>
                                     </table>
                                 </td>
@@ -191,7 +192,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let cat of catPasivo">
-                                
+
                                 <th class="text-center" scope="row">{{cat.cod}}</th>
                                 <th>{{cat.nombre_cod}}</th>
                             </tr>

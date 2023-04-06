@@ -1,4 +1,4 @@
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from '../guard/auth.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './components/template/content/content.component';
@@ -29,7 +29,7 @@ import { RemuneracionesComponent } from './components/rrhh/remuneraciones/remune
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, },
+  { path: 'login', component: LoginComponent, },
   { path: 'content', component: ContentComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'client', component: ClientComponent },
