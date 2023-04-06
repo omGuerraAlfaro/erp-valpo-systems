@@ -1,18 +1,20 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { CategoriaServiceService } from 'src/app/services/categoria-service.service';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
+import tippy from 'tippy.js';
+
+
 
 
 @Component({
   selector: 'app-mantenedor-categoria',
   templateUrl: './mantenedor-categoria.component.html',
-  styleUrls: ['./mantenedor-categoria.component.css']
+  styleUrls: ['./mantenedor-categoria.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class MantenedorCategoriaComponent implements OnInit {
 
-  @Output() checkboxChanged = new EventEmitter<any>();
-  checked = ''
+  @ViewChild('btnAgregar') btnagregar!: ElementRef;
   vars = [
     {
       name: 'Saldo Final del Banco Mes Anterior',
@@ -115,6 +117,10 @@ export class MantenedorCategoriaComponent implements OnInit {
     console.log(any);    
   }
 
+  cerrarMes(){
+    console.log('cerrar mes');
+  }
+
   addCategory() {
   }
 
@@ -122,6 +128,18 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
   removeCategory() {
+  }
+
+
+  ngAfterViewInit() {
+    const button = this.btnagregar.nativeElement;
+
+    tippy(button, {
+      content: 'Nueva Sub Categoria',
+      theme: 'material',
+      animation: 'fade',
+
+    });
   }
 
 
