@@ -1,5 +1,8 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
+import { FormControl, FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -10,7 +13,13 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 
 export class MantenedorCategoriaComponent implements OnInit {
-  
+  newSubCategoriaGroup = new FormGroup({
+    categoria: new FormControl(''),
+    subcategoria: new FormControl(''),
+    indicador: new FormControl(''),
+    subindicador: new FormControl(''),
+  });
+
   vars = [
     {
       name: 'Saldo Final del Banco Mes Anterior',
@@ -62,6 +71,11 @@ export class MantenedorCategoriaComponent implements OnInit {
     }
   ]
 
+  dataCat: any;
+  dataSubCat: any;
+  dataInd: any;
+  dataSubInd: any;
+
   catEgreso: any;
   subEgreso: any;
   subSubEgreso: any;
@@ -87,34 +101,84 @@ export class MantenedorCategoriaComponent implements OnInit {
   subSubPatri: any;
   indPatri: any;
 
+
   constructor(private data: CategoryService) {
   }
 
   ngOnInit(): void {
+    //toda la data de categorias.
+    this.data.getAllCategory().subscribe((data: any) => {
+      this.dataCat = data.map((categoria: any) => categoria.descripcion);
+    });
+    this.data.getAllSubCategoria().subscribe((data: CategoryInterface[]) => {
+      this.dataSubCat = data.map((subcategoria: any) => subcategoria.descripcion);
+    });
 
-    this.data.getCategory().subscribe((data: any) => {
+    this.data.getAllIndicadores().subscribe((data: CategoryInterface[]) => {
+      this.dataInd = data.map((indicador: any) => indicador.descripcion);
+    });
+
+    this.data.getAllSubIndicadores().subscribe((data: CategoryInterface[]) => {
+      this.dataSubInd = data.map((subindicador: any) => subindicador.descripcion);
+    });
+
+
+    //data de categorias por tipo.
+    //Activos
+    this.data.getCategoryAct().subscribe((data: CategoryInterface[]) => {
       this.catActivo = data;
     });
-
-    this.data.getSubCategoria().subscribe((data: any) => {
+    this.data.getCategorySubAct().subscribe((data: CategoryInterface[]) => {
       this.subCatActivo = data;
     });
-
-    this.data.getIndicadores().subscribe((data: any) => {
+    this.data.getCategoryIndAct().subscribe((data: CategoryInterface[]) => {
       this.indActivo = data;
     });
-
-    this.data.getSubIndicadores().subscribe((data: any) => {
+    this.data.getCategorySubIndAct().subscribe((data: CategoryInterface[]) => {
       this.subIndActivo = data;
     });
+    
+    /* *************************************************************************** */
+    /* *************************************************************************** */
+    //Pasivos
+    this.data.getCategoryPas().subscribe((data: CategoryInterface[]) => {
+      this.catPasivo = data;
+    });
+
+    /* *************************************************************************** */
+    /* *************************************************************************** */
+    //Patrimonio
+    this.data.getCategoryPat().subscribe((data: CategoryInterface[]) => {
+      this.catPatri = data;
+    });
+
+    /* *************************************************************************** */
+    /* *************************************************************************** */
+    //Ingresos
+    this.data.getCategoryIng().subscribe((data: CategoryInterface[]) => {
+      this.catIngreso = data;
+    });
+
+    /* *************************************************************************** */
+    /* *************************************************************************** */
+    //Egresos
+    this.data.getCategoryEgr().subscribe((data: CategoryInterface[]) => {
+      this.catEgreso = data;
+    });
+
+
+
   }
 
-  
+  onSubmit() {
+    console.log(this.newSubCategoriaGroup.value);
+  }
+
   click(any: any) {
-    console.log(any);    
+    console.log(any);
   }
 
-  cerrarMes(){
+  cerrarMes() {
     console.log('cerrar mes');
   }
 
@@ -128,7 +192,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
 
-  
+
 
 
 }

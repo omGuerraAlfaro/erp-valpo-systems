@@ -67,6 +67,7 @@
 
 .content-custom-scrollbar {
     display: block;
+    width: 100%;
 }
 
 .spacing{
@@ -83,4 +84,5 @@
 
 .table-wrapper-scroll-y {
     display: block;
+    max-width: 100%;
 }
