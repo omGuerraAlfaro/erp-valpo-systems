@@ -1,8 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
-import tippy from 'tippy.js';
-
-
 
 
 @Component({
@@ -13,8 +10,7 @@ import tippy from 'tippy.js';
 })
 
 export class MantenedorCategoriaComponent implements OnInit {
-
-  @ViewChild('btnAgregar') btnagregar!: ElementRef;
+  
   vars = [
     {
       name: 'Saldo Final del Banco Mes Anterior',
@@ -113,6 +109,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     });
   }
 
+  
   click(any: any) {
     console.log(any);    
   }
@@ -131,16 +128,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
 
-  ngAfterViewInit() {
-    const button = this.btnagregar.nativeElement;
-
-    tippy(button, {
-      content: 'Nueva Sub Categoria',
-      theme: 'material',
-      animation: 'fade',
-
-    });
-  }
+  
 
 
 }
