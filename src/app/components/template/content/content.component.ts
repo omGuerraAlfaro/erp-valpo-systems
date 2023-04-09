@@ -11,7 +11,7 @@ export class ContentComponent implements OnInit {
   constructor(private router: Router) { 
     this.isLogged = localStorage.getItem('User') !== null ? true : false;
     if(this.isLogged){
-      this.router.navigate(['/home']);
+      this.router.onSameUrlNavigation = 'reload';
     }else{
       this.router.navigate(['/login']);
     }

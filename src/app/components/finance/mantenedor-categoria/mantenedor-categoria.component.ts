@@ -2,6 +2,8 @@ import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, ViewEnc
 import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CategoriaInterface } from 'src/app/interfaces/categoria';
+import { Router } from '@angular/router';
 
 
 
@@ -14,6 +16,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 
 export class MantenedorCategoriaComponent implements OnInit {
   newSubCategoriaGroup = new FormGroup({
+    categoria: new FormControl(''),
+    cod_contable: new FormControl(''),
+    descripcion: new FormControl(''),
+  });
+  newSubIndicadorGroup = new FormGroup({
     categoria: new FormControl(''),
     subcategoria: new FormControl(''),
     indicador: new FormControl(''),
@@ -102,7 +109,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   indPatri: any;
 
 
-  constructor(private data: CategoryService) {
+  constructor(private data: CategoryService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -137,19 +144,38 @@ export class MantenedorCategoriaComponent implements OnInit {
     this.data.getCategorySubIndAct().subscribe((data: CategoryInterface[]) => {
       this.subIndActivo = data;
     });
-    
+
     /* *************************************************************************** */
     /* *************************************************************************** */
     //Pasivos
     this.data.getCategoryPas().subscribe((data: CategoryInterface[]) => {
       this.catPasivo = data;
     });
+    this.data.getCategorySubPas().subscribe((data: CategoryInterface[]) => {
+      this.subPasivo = data;
+    });
+    this.data.getCategoryIndPas().subscribe((data: CategoryInterface[]) => {
+      this.indPasivo = data;
+    });
+    this.data.getCategorySubIndPas().subscribe((data: CategoryInterface[]) => {
+      this.subSubPasivo = data;
+    });
+
 
     /* *************************************************************************** */
     /* *************************************************************************** */
     //Patrimonio
     this.data.getCategoryPat().subscribe((data: CategoryInterface[]) => {
       this.catPatri = data;
+    });
+    this.data.getCategorySubPat().subscribe((data: CategoryInterface[]) => {
+      this.subPatri = data;
+    });
+    this.data.getCategoryIndPat().subscribe((data: CategoryInterface[]) => {
+      this.indPatri = data;
+    });
+    this.data.getCategorySubIndPat().subscribe((data: CategoryInterface[]) => {
+      this.subSubPatri = data;
     });
 
     /* *************************************************************************** */
@@ -158,16 +184,50 @@ export class MantenedorCategoriaComponent implements OnInit {
     this.data.getCategoryIng().subscribe((data: CategoryInterface[]) => {
       this.catIngreso = data;
     });
-
+    this.data.getCategorySubIng().subscribe((data: CategoryInterface[]) => {
+      this.subIngreso = data;
+    });
+    this.data.getCategoryIndIng().subscribe((data: CategoryInterface[]) => {
+      this.indIngreso = data;
+    });
+    this.data.getCategorySubIndIng().subscribe((data: CategoryInterface[]) => {
+      this.subSubIngreso = data;
+    });
     /* *************************************************************************** */
     /* *************************************************************************** */
     //Egresos
     this.data.getCategoryEgr().subscribe((data: CategoryInterface[]) => {
       this.catEgreso = data;
     });
+    this.data.getCategorySubEgr().subscribe((data: CategoryInterface[]) => {
+      this.subEgreso = data;
+    }
+    );
+    this.data.getCategoryIndEgr().subscribe((data: CategoryInterface[]) => {
+      this.indEgreso = data;
+    });
+    this.data.getCategorySubIndEgr().subscribe((data: CategoryInterface[]) => {
+      this.subSubEgreso = data;
+    });
 
+  }
 
-
+  newSubCategory() {
+    let id= '';
+    let cod_contable: number = +this.newSubCategoriaGroup.value.cod_contable!;
+    let descripcion = this.newSubCategoriaGroup.value.descripcion!;
+    let fkCategoria: number = +this.newSubCategoriaGroup.value.categoria!;
+    this.data.addSubCategory(id, cod_contable, descripcion, fkCategoria).subscribe((data: any) => {
+      console.log("Se agregó la subcategoría");
+    });
+  }
+  deleteSubCategory(dataInformation: any) {
+    let id = dataInformation;
+    this.data.deleteSubCategory(id).subscribe((data: any) => {
+      console.log("Se eliminó la subcategoría");
+      this.router.navigate(['/mantenedor']);
+    });
+    this.router.navigate(['/mantenedor']);    
   }
 
   onSubmit() {
