@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-content',
@@ -8,16 +8,25 @@ import { Router } from '@angular/router';
 })
 export class ContentComponent implements OnInit {
   isLogged = false;
-  constructor(private router: Router) { 
+  before: any;
+  constructor(private router: Router, private activeroute: ActivatedRoute) {
     this.isLogged = localStorage.getItem('User') !== null ? true : false;
-    if(this.isLogged){
-      this.router.onSameUrlNavigation = 'reload';
-    }else{
-      this.router.navigate(['/login']);
-    }
+
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.isLogged && this.router.getCurrentNavigation()?.extras.state) {
+        this.before = this.router.getCurrentNavigation()?.extras.state;
+        const url = this.before.url;
+        this.router.navigate(['/' + url]);
+      } else if (this.isLogged) {
+        this.router.navigate(['/home']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
   ngOnInit(): void {
   }
 
 }
+

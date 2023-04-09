@@ -3,7 +3,7 @@ import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CategoriaInterface } from 'src/app/interfaces/categoria';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 
 
@@ -108,8 +108,9 @@ export class MantenedorCategoriaComponent implements OnInit {
   subSubPatri: any;
   indPatri: any;
 
+  currentRoute = this.route.snapshot.url[0].path;
 
-  constructor(private data: CategoryService, private router: Router) {
+  constructor(private data: CategoryService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -213,7 +214,7 @@ export class MantenedorCategoriaComponent implements OnInit {
   }
 
   newSubCategory() {
-    let id= '';
+    let id = '';
     let cod_contable: number = +this.newSubCategoriaGroup.value.cod_contable!;
     let descripcion = this.newSubCategoriaGroup.value.descripcion!;
     let fkCategoria: number = +this.newSubCategoriaGroup.value.categoria!;
@@ -225,9 +226,13 @@ export class MantenedorCategoriaComponent implements OnInit {
     let id = dataInformation;
     this.data.deleteSubCategory(id).subscribe((data: any) => {
       console.log("Se eliminó la subcategoría");
-      this.router.navigate(['/mantenedor']);
+      const extras: NavigationExtras = {
+        state: {
+          url: this.currentRoute
+        }
+      };
+      this.router.navigate(['/content'], extras);
     });
-    this.router.navigate(['/mantenedor']);    
   }
 
   onSubmit() {
