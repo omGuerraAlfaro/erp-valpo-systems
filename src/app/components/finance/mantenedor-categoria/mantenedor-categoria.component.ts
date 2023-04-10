@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef, ViewEnc
 import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CategoriaInterface } from 'src/app/interfaces/categoria';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 
 
@@ -17,6 +16,11 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 export class MantenedorCategoriaComponent implements OnInit {
   newSubCategoriaGroup = new FormGroup({
     categoria: new FormControl(''),
+    cod_contable: new FormControl(''),
+    descripcion: new FormControl(''),
+  });
+  newIndicadorGroup = new FormGroup({
+    subcategoria: new FormControl(''),
     cod_contable: new FormControl(''),
     descripcion: new FormControl(''),
   });
@@ -212,7 +216,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     });
 
   }
-
+  /* SUBCATEGORIA */
   newSubCategory() {
     let id = '';
     let cod_contable: number = +this.newSubCategoriaGroup.value.cod_contable!;
@@ -234,6 +238,30 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
+  /* INDICADORES */
+  newIndicator() {
+    let id = '';
+    let cod_contable: number = +this.newIndicadorGroup.value.cod_contable!;
+    let descripcion = this.newIndicadorGroup.value.descripcion!;
+    let fkSubCategoria: number = +this.newIndicadorGroup.value.subcategoria!;
+    this.data.addIndicator(id, cod_contable, descripcion, fkSubCategoria).subscribe((data: any) => {
+      console.log("Se agregó el Indicador");
+    });
+  }
+  deleteIndicator(dataInformation: any) {
+    console.log(dataInformation);    
+    let id = dataInformation;
+    this.data.deleteIndicator(id).subscribe((data: any) => {
+      console.log("Se eliminó el indicador");
+      const extras: NavigationExtras = {
+        state: {
+          url: this.currentRoute
+        }
+      };
+      this.router.navigate(['/content'], extras);
+    });
+  }
+
 
   onSubmit() {
     console.log(this.newSubCategoriaGroup.value);

@@ -33,34 +33,52 @@ export class CategoryService {
   /* **************************************************************************************************************************************************************** */
   //Por Categoria
   //Activos
-  /* GET */
+  /* GET ACTIVOS*/
   getCategoryAct(): Observable<any> {
     const dataCategoriaAct = this.http.get<CategoryInterface[]>('http://localhost:3001/categorias/activos');
     return dataCategoriaAct;
   }
+
+  /* GET SUBCATEGORIA ACTIVOS */
   getCategorySubAct(): Observable<any> {
     const dataSubCategoriaAct = this.http.get<CategoryInterface[]>('http://localhost:3001/subcategorias/activos');
     return dataSubCategoriaAct;
   }
+  /* POST SUBCATEGORIA ACTIVOS*/
+  addSubCategory(id_subcategoria: string, cod_contable: number, descripcion: string, id_categoria: number): Observable<any> {
+    const dataCategoriaAct = this.http.post<CategoriaInterface>('http://localhost:3001/subcategorias/activos/agregar', { id_subcategoria, cod_contable, descripcion, id_categoria });
+    return dataCategoriaAct;
+  }
+  /* DELETE SUBCATEGORIA ACTIVOS*/
+  deleteSubCategory(id_subcategoria: string): Observable<any> {
+    const dataCategoriaAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/eliminar/${id_subcategoria}`);
+    return dataCategoriaAct;
+  }
+
+/* ********************************************************* */
+  /* GET INDICADORES ACTIVOS*/
   getCategoryIndAct(): Observable<any> {
     const dataIndicadoresAct = this.http.get<CategoryInterface[]>('http://localhost:3001/indicadores/activos');
     return dataIndicadoresAct;
   }
+  /* POST INDICADORES  ACTIVOS*/
+  addIndicator(id_indicador: string, cod_contable: number, descripcion: string, id_subcategoria: number): Observable<any> {
+    const dataIndicadoresAct = this.http.post<CategoriaInterface>('http://localhost:3001/indicadores/activos/agregar', { id_indicador, cod_contable, descripcion, id_subcategoria });
+    return dataIndicadoresAct;
+  }
+  /* DELETE INDICADORES ACTIVOS*/
+  deleteIndicator(id_indicador: string): Observable<any> {
+    const dataIndicadoresAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/indicadores/activos/eliminar/${id_indicador}`);
+    return dataIndicadoresAct;
+  }
+
+
+  /* GET SUBINDICADORES */
   getCategorySubIndAct(): Observable<any> {
     const dataSubIndicadoresAct = this.http.get<CategoryInterface[]>('http://localhost:3001/subindicadores/activos');
     return dataSubIndicadoresAct;
   }
 
-  /* POST */
-  addSubCategory(id_subcategoria:string, cod_contable: number, descripcion: string, id_categoria: number ): Observable<any> {
-    const dataCategoriaAct = this.http.post<CategoriaInterface>('http://localhost:3001/subcategorias/activos/agregar', { id_subcategoria, cod_contable, descripcion, id_categoria });
-    return dataCategoriaAct;
-  }
-  /* DELETE */
-  deleteSubCategory(id_subcategoria: string): Observable<any> {
-    const dataCategoriaAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/eliminar/${id_subcategoria}`);
-    return dataCategoriaAct;
-  }
 
 
 
