@@ -248,6 +248,15 @@ export class MantenedorCategoriaComponent implements OnInit {
       console.log("Se agregó el Indicador");
     });
   }
+  closeModal() {
+    const extras: NavigationExtras = {
+      state: {
+        url: this.currentRoute
+      }
+    };
+    this.router.navigate(['/content'], extras);
+  }
+
   deleteIndicator(dataInformation: any) {
     console.log(dataInformation);    
     let id = dataInformation;
@@ -261,6 +270,7 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
+
 
 
   onSubmit() {
