@@ -1080,42 +1080,29 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form [formGroup]="newSubIndicadorGroup" (ngSubmit)="onSubmit()">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="categoria" class="form-label">Categoria</label>
-                                <select class="form-select" formControlName="categoria">
-                                    <option value="">Seleccione...</option>
-                                    <option value="{{cat}}" *ngFor="let cat of dataCat">{{cat}}</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="subcategoria" class="form-label">Sub Categoria</label>
-                                <select class="form-select" formControlName="subcategoria">
-                                    <option value="">Seleccione...</option>
-                                    <option value="{{cat}}" *ngFor="let cat of dataSubCat">{{cat}}</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="categoria" class="form-label">Indicador</label>
+                    <form [formGroup]="newSubIndicadorGroup" (ngSubmit)="newSubIndicator()">
+                        <div class="row g-3 m-0 justify-content-center">                           
+                            <div class="col-md-10">
+                                <label for="subcategoria" class="form-label">Indicador</label>
                                 <select class="form-select" formControlName="indicador">
                                     <option value="">Seleccione...</option>
-                                    <option value="{{cat}}" *ngFor="let cat of dataInd">{{cat}}</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indActivo; let i = index">{{cat.descripcion}}</option>
                                 </select>
                             </div>
-                            <div class="col-md-6">
-                                <label for="subcategoria" class="form-label">Sub Indicador</label>
-                                <select class="form-select" formControlName="subindicador">
-                                    <option value="">Seleccione...</option>
-                                    <option value="{{cat}}" *ngFor="let cat of dataSubInd">{{cat}}</option>
-                                </select>
+                            <div class="col-md-10">
+                                <label for="categoria" class="form-label">Codigo Contable</label>
+                                <input type="text" class="form-control" formControlName="cod_contable">
+                            </div>
+                            <div class="col-md-10">
+                                <label for="categoria" class="form-label">Descripción</label>
+                                <input type="text" class="form-control" formControlName="descripcion">
                             </div>
                         </div>
                         <div class="modal-footer flex-column border-top-0">
                             <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar Sub
                                 Indicador</button>
                             <button type="button" class="btn btn-secondary w-100 mx-0"
-                                data-bs-dismiss="modal">Cerrar</button>
+                                data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
                         </div>
                     </form>
                 </div>

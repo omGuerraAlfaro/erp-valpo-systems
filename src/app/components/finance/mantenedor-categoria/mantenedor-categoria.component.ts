@@ -3,6 +3,7 @@ import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 
@@ -25,10 +26,9 @@ export class MantenedorCategoriaComponent implements OnInit {
     descripcion: new FormControl(''),
   });
   newSubIndicadorGroup = new FormGroup({
-    categoria: new FormControl(''),
-    subcategoria: new FormControl(''),
     indicador: new FormControl(''),
-    subindicador: new FormControl(''),
+    cod_contable: new FormControl(''),
+    descripcion: new FormControl(''),
   });
 
   vars = [
@@ -223,12 +223,26 @@ export class MantenedorCategoriaComponent implements OnInit {
     let descripcion = this.newSubCategoriaGroup.value.descripcion!;
     let fkCategoria: number = +this.newSubCategoriaGroup.value.categoria!;
     this.data.addSubCategory(id, cod_contable, descripcion, fkCategoria).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Sub - Categoría agregada correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
       console.log("Se agregó la subcategoría");
     });
   }
   deleteSubCategory(dataInformation: any) {
     let id = dataInformation;
     this.data.deleteSubCategory(id).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Sub - Categoría eliminada correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
       console.log("Se eliminó la subcategoría");
       const extras: NavigationExtras = {
         state: {
@@ -245,22 +259,27 @@ export class MantenedorCategoriaComponent implements OnInit {
     let descripcion = this.newIndicadorGroup.value.descripcion!;
     let fkSubCategoria: number = +this.newIndicadorGroup.value.subcategoria!;
     this.data.addIndicator(id, cod_contable, descripcion, fkSubCategoria).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Indicador agregado correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
       console.log("Se agregó el Indicador");
     });
   }
-  closeModal() {
-    const extras: NavigationExtras = {
-      state: {
-        url: this.currentRoute
-      }
-    };
-    this.router.navigate(['/content'], extras);
-  }
-
   deleteIndicator(dataInformation: any) {
     console.log(dataInformation);    
     let id = dataInformation;
     this.data.deleteIndicator(id).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Indicador eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
       console.log("Se eliminó el indicador");
       const extras: NavigationExtras = {
         state: {
@@ -270,12 +289,55 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
-
-
-
-  onSubmit() {
-    console.log(this.newSubCategoriaGroup.value);
+  /* SUBINDICADORES */
+  newSubIndicator() {
+    let id = '';
+    let cod_contable: number = +this.newSubIndicadorGroup.value.cod_contable!;
+    let descripcion = this.newSubIndicadorGroup.value.descripcion!;
+    let fkIndicador: number = +this.newSubIndicadorGroup.value.indicador!;
+    this.data.addSubIndicator(id, cod_contable, descripcion, fkIndicador).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Sub - Indicador agregado correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+      this.newSubIndicadorGroup.reset();      
+      console.log("Se agregó el SubIndicador");
+    });
   }
+  deleteSubIndicator(dataInformation: any) {
+    let id = dataInformation;
+    this.data.deleteSubIndicator(id).subscribe((data: any) => {
+      console.log("Se eliminó el Sub - Indicador");
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Sub - Indicador eliminado correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+      const extras: NavigationExtras = {
+        state: {
+          url: this.currentRoute
+        }
+      };
+      this.router.navigate(['/content'], extras);
+    });
+  }
+  
+  
+  closeModal() {
+    const extras: NavigationExtras = {
+      state: {
+        url: this.currentRoute
+      }
+    };
+    this.router.navigate(['/content'], extras);
+  }
+
+  
 
   click(any: any) {
     console.log(any);
@@ -285,23 +347,11 @@ export class MantenedorCategoriaComponent implements OnInit {
     console.log('cerrar mes');
   }
 
-  addCategory() {
-  }
-
-  editCategory() {
-  }
-
-  removeCategory() {
-  }
 
 
 
 
 
 }
-
-
-
-
 
 

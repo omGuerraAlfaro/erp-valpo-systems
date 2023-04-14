@@ -5,16 +5,21 @@
         </div>
         <hr>
         <br>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="row text-center flex-row">
+            <div class="col-md-4 d-flex">
+                <div class="col-md-10 card mb-4 rounded-3 shadow-sm">
                     <div class="card-header py-1">
-                        <h6 class="my-0 fw-normal">Filtro</h6>
+                        <h6 class="my-0 fw-normal">Filtros</h6>
                     </div>
                     <div class="card-body d-flex">
                         <input id="startDate" class="form-control" type="date" />
                         <button type="button" class="w-30 btn btn-lg btn-primary my-1 mx-1 py-1">OK</button>
-                    </div>
+                    </div>                    
+                    <div class="card-body d-flex">
+                        <input class="form-control" type="input" />
+                    </div>                    
+                </div>
+                <div class="col-md-10 m-3">
                     <button type="button" class="btn btn-lg btn-outline-primary m-1">Volver al Mes Actual</button>
                 </div>
             </div>
@@ -24,7 +29,7 @@
         <hr>
         <div class="responsive-table container">
             <h5>Movimientos por Categorizar:</h5>
-            <table class="table table-bordered table-striped table-sm">
+            <table class="table table-bordered table-striped table-sm table-wrapper-scroll-y my-custom-scrollbar">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">Id Movimiento</th>
@@ -33,23 +38,26 @@
                         <th scope="col">Estado</th>
                         <th scope="col">Emitida por</th>
                         <th scope="col">Detalle</th>
+                        <th scope="col">Total</th>
                         <th scope="col" class="text-center">Opciones</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let tab of table">
+                <tbody *ngFor="let tab of dataVtiger">
                     <tr>
                         <th scope="col" class="text-center">{{tab.id}}</th>
-                        <td scope="col">{{tab.dateEmit}}</td>
-                        <td scope="col">{{tab.datePay}}</td>
-                        <td scope="col">{{tab.state}}</td>
-                        <td scope="col">{{tab.emitFor}}</td>
-                        <td scope="col">{{tab.detail}}</td>
+                        <td scope="col">{{tab.invoice_no}}</td>
+                        <td scope="col">{{tab.invoicedate | date}}</td>
+                        <td scope="col">{{tab.invoicestatus}}</td>
+                        <td scope="col">{{tab.userlabel}}</td>
+                        <td scope="col">{{tab.subject}}</td>
+                        <td scope="col">{{tab.total | mount}} CLP</td>
                         <td scope="col" class="text-center">
-                            <button type="button" class="btn btn-light border mx-auto" data-bs-toggle="modal" data-bs-target="#categorizarModal">
+                            <button type="button" class="btn btn-light border mx-auto" data-bs-toggle="modal"
+                                data-bs-target="#categorizarModal">
                                 Categorizar
                             </button>
                         </td>
-                    </tr>                    
+                    </tr>
                 </tbody>
             </table>
         </div>

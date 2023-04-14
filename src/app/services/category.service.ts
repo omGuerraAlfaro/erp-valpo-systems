@@ -78,6 +78,17 @@ export class CategoryService {
     const dataSubIndicadoresAct = this.http.get<CategoryInterface[]>('http://localhost:3001/subindicadores/activos');
     return dataSubIndicadoresAct;
   }
+  /* POST SUBINDICADORES */
+  addSubIndicator(id_subindicador: string, cod_contable: number, descripcion: string, id_indicador: number): Observable<any> {
+    const dataSubIndicadoresAct = this.http.post<CategoriaInterface>('http://localhost:3001/subindicadores/activos/agregar', { id_subindicador, cod_contable, descripcion, id_indicador });
+    return dataSubIndicadoresAct;
+  }
+  /* DELETE SUBINDICADORES */
+  deleteSubIndicator(id_subindicador: string): Observable<any> {
+    const dataSubIndicadoresAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/subindicadores/activos/eliminar/${id_subindicador}`);
+    return dataSubIndicadoresAct;
+  }
+  
 
 
 
