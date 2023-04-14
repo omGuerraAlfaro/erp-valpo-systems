@@ -15,8 +15,14 @@ import Swal from 'sweetalert2';
 })
 
 export class MantenedorCategoriaComponent implements OnInit {
+  editSubCategoriaGroup = new FormGroup({
+    subcategoria: new FormControl(''),
+    cod_contable: new FormControl(''),
+    descripcion: new FormControl(''),
+    id_categoria: new FormControl(''),
+  });
   newSubCategoriaGroup = new FormGroup({
-    categoria: new FormControl(''),
+    subcategoria: new FormControl(''),
     cod_contable: new FormControl(''),
     descripcion: new FormControl(''),
   });
@@ -221,7 +227,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     let id = '';
     let cod_contable: number = +this.newSubCategoriaGroup.value.cod_contable!;
     let descripcion = this.newSubCategoriaGroup.value.descripcion!;
-    let fkCategoria: number = +this.newSubCategoriaGroup.value.categoria!;
+    let fkCategoria: number = +this.newSubCategoriaGroup.value.subcategoria!;
     this.data.addSubCategory(id, cod_contable, descripcion, fkCategoria).subscribe((data: any) => {
       Swal.fire({
         position: 'top',
@@ -252,6 +258,34 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
+  getDataEditSubCategory(dataInformation: any) {
+    console.log(dataInformation);
+    const { id_subcategoria, cod_contable, descripcion, id_categoria } = dataInformation;
+    this.editSubCategoriaGroup.setValue({
+      subcategoria: dataInformation.id_subcategoria,
+      cod_contable: dataInformation.cod_contable,
+      descripcion: dataInformation.descripcion,
+      id_categoria: dataInformation.id_categoria
+    });
+  }
+  editSubCategory() {
+    let subCategoria: number = +this.editSubCategoriaGroup.value.subcategoria!;
+    let codContable: number = +this.editSubCategoriaGroup.value.cod_contable!;
+    let descripcionSub = this.editSubCategoriaGroup.value.descripcion!;
+    let fkCategoria: number = +this.editSubCategoriaGroup.value.id_categoria!;
+    console.log(subCategoria, codContable, descripcionSub, fkCategoria);
+    
+    this.data.editSubCategory(subCategoria, codContable, descripcionSub, fkCategoria).subscribe((data: any) => {
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'Sub - Categoría editada correctamente',
+        showConfirmButton: false,
+        timer: 1200
+      })
+      console.log("Se editó la subcategoría");
+    });
+  }
   /* INDICADORES */
   newIndicator() {
     let id = '';
@@ -270,7 +304,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     });
   }
   deleteIndicator(dataInformation: any) {
-    console.log(dataInformation);    
+    console.log(dataInformation);
     let id = dataInformation;
     this.data.deleteIndicator(id).subscribe((data: any) => {
       Swal.fire({
@@ -303,14 +337,15 @@ export class MantenedorCategoriaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1200
       })
-      this.newSubIndicadorGroup.reset();      
+      this.newSubIndicadorGroup.reset();
       console.log("Se agregó el SubIndicador");
     });
   }
   deleteSubIndicator(dataInformation: any) {
-    let id = dataInformation;
-    this.data.deleteSubIndicator(id).subscribe((data: any) => {
-      console.log("Se eliminó el Sub - Indicador");
+    const { id_subindicador } = dataInformation;
+    console.log(id_subindicador);
+
+    this.data.deleteSubIndicator(id_subindicador).subscribe((data: any) => {
       Swal.fire({
         position: 'top',
         icon: 'success',
@@ -318,6 +353,7 @@ export class MantenedorCategoriaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1200
       })
+      console.log("Se eliminó el Sub - Indicador");
       const extras: NavigationExtras = {
         state: {
           url: this.currentRoute
@@ -326,8 +362,8 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
-  
-  
+
+
   closeModal() {
     const extras: NavigationExtras = {
       state: {
@@ -337,7 +373,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     this.router.navigate(['/content'], extras);
   }
 
-  
+
 
   click(any: any) {
     console.log(any);

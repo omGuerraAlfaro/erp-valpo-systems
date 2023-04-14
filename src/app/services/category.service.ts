@@ -54,8 +54,13 @@ export class CategoryService {
     const dataCategoriaAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/eliminar/${id_subcategoria}`);
     return dataCategoriaAct;
   }
+  /* EDIT SUBCATEGORIA ACTIVOS */
+  editSubCategory(id_subcategoria: number, cod_contable: number, descripcion: string, fkCategoria: number): Observable<any> {
+    const dataCategoriaAct = this.http.put<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/editar/${id_subcategoria}`, { id_subcategoria, cod_contable, descripcion, fkCategoria });
+    return dataCategoriaAct;
+  }
 
-/* ********************************************************* */
+  /* ********************************************************* */
   /* GET INDICADORES ACTIVOS*/
   getCategoryIndAct(): Observable<any> {
     const dataIndicadoresAct = this.http.get<CategoryInterface[]>('http://localhost:3001/indicadores/activos');
@@ -84,11 +89,11 @@ export class CategoryService {
     return dataSubIndicadoresAct;
   }
   /* DELETE SUBINDICADORES */
-  deleteSubIndicator(id_subindicador: string): Observable<any> {
+  deleteSubIndicator(id_subindicador: number): Observable<any> {
     const dataSubIndicadoresAct = this.http.delete<CategoriaInterface>(`http://localhost:3001/subindicadores/activos/eliminar/${id_subindicador}`);
     return dataSubIndicadoresAct;
   }
-  
+
 
 
 

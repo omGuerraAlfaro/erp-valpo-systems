@@ -135,12 +135,15 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" data-bs-toggle="modal"
+                                                            data-bs-target="#editSubCatModal"
+                                                            (click)="getDataEditSubCategory(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="deleteSubCategory(cat2.id_subcategoria)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -168,12 +171,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="deleteIndicator(cat2.id_indicador)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -202,13 +206,14 @@
                                                 <td>{{cat3.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat3)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
+                                                            (click)="deleteSubIndicator(cat3)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
                                                         </button>
@@ -326,12 +331,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -359,12 +365,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -393,12 +400,13 @@
                                                 <td>{{cat3.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat3)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat3)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -517,12 +525,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -550,12 +559,13 @@
                                                 <td scope="row">{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -584,12 +594,13 @@
                                                 <td>{{cat3.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat3)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat3)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -708,12 +719,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -741,12 +753,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -775,12 +788,13 @@
                                                 <td>{{cat3.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat3)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat3)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -899,12 +913,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -932,12 +947,13 @@
                                                 <td>{{cat2.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat2)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat2)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat2)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -966,12 +982,13 @@
                                                 <td>{{cat3.descripcion}}</td>
                                                 <td scope="row">
                                                     <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                                                        <button type="button" class="btn btn-outline-warning" data-toggle="tooltip" title="Editar"
-                                                            (click)="click(cat3)">
+                                                        <button type="button" class="btn btn-outline-warning"
+                                                            data-toggle="tooltip" title="Editar" (click)="click(cat3)">
                                                             <img src="../../../assets/icon/pencil.svg" alt=""
                                                                 class="icon">
                                                         </button>
-                                                        <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" title="Eliminar"
+                                                        <button type="button" class="btn btn-outline-danger"
+                                                            data-toggle="tooltip" title="Eliminar"
                                                             (click)="click(cat3)">
                                                             <img src="../../../assets/icon/trash.svg" alt=""
                                                                 class="icon">
@@ -1005,7 +1022,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="categoria" class="form-label">Categoria</label>
-                                <select class="form-select" formControlName="categoria">
+                                <select class="form-select" formControlName="subcategoria">
                                     <option value="">Seleccione...</option>
                                     <option value="{{i+1}}" *ngFor="let cat of dataCat;let i = index">{{cat}}</option>
                                 </select>
@@ -1020,9 +1037,49 @@
                             </div>
                         </div>
                         <div class="modal-footer flex-column border-top-0">
-                            <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar Sub-Categoria</button>
-                            <button type="button" class="btn btn-secondary w-100 mx-0"
-                                data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+                            <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar
+                                Sub-Categoria</button>
+                            <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
+                                (click)="closeModal()">Cerrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar SubCategoria -->
+    <div class="modal fade" id="editSubCatModal" tabindex="-1" aria-labelledby="editSubCatModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header border-bottom-0">
+                    <h1 class="modal-title fs-5">Editar Sub-Categoria</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="editSubCategoriaGroup" (ngSubmit)="editSubCategory()">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="categoria" class="form-label">Categoria</label>
+                                <select class="form-select" formControlName="subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of dataCat;let i = index">{{cat}}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="categoria" class="form-label">Codigo Contable</label>
+                                <input type="text" class="form-control" formControlName="cod_contable">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="categoria" class="form-label">Descripción</label>
+                                <input type="text" class="form-control" formControlName="descripcion">
+                            </div>
+                        </div>
+                        <div class="modal-footer flex-column border-top-0">
+                            <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar
+                                Cambios</button>
+                            <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
+                                (click)="closeModal()">Cerrar</button>
                         </div>
                     </form>
                 </div>
@@ -1047,7 +1104,8 @@
                                 <label for="categoria" class="form-label">Sub - Categoria</label>
                                 <select class="form-select" formControlName="subcategoria">
                                     <option value="">Seleccione...</option>
-                                    <option value="{{i+1}}" *ngFor="let cat of indActivo;let i = index">{{cat.descripcion}}</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indActivo;let i = index">
+                                        {{cat.descripcion}}</option>
                                 </select>
                             </div>
                             <div class="col-md-6">
@@ -1060,9 +1118,10 @@
                             </div>
                         </div>
                         <div class="modal-footer flex-column border-top-0">
-                            <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar Sub-Categoria</button>
-                            <button type="button" class="btn btn-secondary w-100 mx-0"
-                                data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+                            <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar
+                                Sub-Categoria</button>
+                            <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
+                                (click)="closeModal()">Cerrar</button>
                         </div>
                     </form>
                 </div>
@@ -1081,12 +1140,13 @@
                 </div>
                 <div class="modal-body">
                     <form [formGroup]="newSubIndicadorGroup" (ngSubmit)="newSubIndicator()">
-                        <div class="row g-3 m-0 justify-content-center">                           
+                        <div class="row g-3 m-0 justify-content-center">
                             <div class="col-md-10">
                                 <label for="subcategoria" class="form-label">Indicador</label>
                                 <select class="form-select" formControlName="indicador">
                                     <option value="">Seleccione...</option>
-                                    <option value="{{i+1}}" *ngFor="let cat of indActivo; let i = index">{{cat.descripcion}}</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indActivo; let i = index">
+                                        {{cat.descripcion}}</option>
                                 </select>
                             </div>
                             <div class="col-md-10">
@@ -1101,8 +1161,8 @@
                         <div class="modal-footer flex-column border-top-0">
                             <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar Sub
                                 Indicador</button>
-                            <button type="button" class="btn btn-secondary w-100 mx-0"
-                                data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+                            <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
+                                (click)="closeModal()">Cerrar</button>
                         </div>
                     </form>
                 </div>
