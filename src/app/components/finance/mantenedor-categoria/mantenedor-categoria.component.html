@@ -1061,7 +1061,7 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="categoria" class="form-label">Categoria</label>
-                                <select class="form-select" formControlName="subcategoria">
+                                <select class="form-select" formControlName="id_categoria">
                                     <option value="">Seleccione...</option>
                                     <option value="{{i+1}}" *ngFor="let cat of dataCat;let i = index">{{cat}}</option>
                                 </select>
@@ -1077,9 +1077,11 @@
                         </div>
                         <div class="modal-footer flex-column border-top-0">
                             <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Guardar
-                                Cambios</button>
+                                Cambios
+                            </button>
                             <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
-                                (click)="closeModal()">Cerrar</button>
+                                (click)="closeModal()">Cerrar
+                            </button>
                         </div>
                     </form>
                 </div>

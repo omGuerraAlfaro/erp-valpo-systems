@@ -10,7 +10,7 @@ import { CategoriaInterface } from '../interfaces/categoria';
 export class CategoryService {
 
   constructor(private http: HttpClient) { }
-
+  private api = 'http://localhost:3001/';
   //Todos los datos.
   getAllCategory(): Observable<any> {
     const dataCategoria = this.http.get<CategoryInterface[]>('http://localhost:3001/categorias');
@@ -168,23 +168,40 @@ export class CategoryService {
   /* **************************************************************************************************************************************************************** */
   //Egresos
   getCategoryEgr(): Observable<any> {
-    const dataCategoriaEgr = this.http.get<CategoryInterface[]>('http://localhost:3001/categorias/egresos');
+    const dataCategoriaEgr = this.http.get<CategoryInterface[]>(this.api + 'categorias/egresos');
     return dataCategoriaEgr;
   }
   getCategorySubEgr(): Observable<any> {
-    const dataSubCategoriaEgr = this.http.get<CategoryInterface[]>('http://localhost:3001/subcategorias/egresos');
+    const dataSubCategoriaEgr = this.http.get<CategoryInterface[]>(this.api + 'subcategorias/egresos');
     return dataSubCategoriaEgr;
   }
   getCategoryIndEgr(): Observable<any> {
-    const dataIndicadoresEgr = this.http.get<CategoryInterface[]>('http://localhost:3001/indicadores/egresos');
+    const dataIndicadoresEgr = this.http.get<CategoryInterface[]>(this.api + 'indicadores/egresos');
     return dataIndicadoresEgr;
   }
   getCategorySubIndEgr(): Observable<any> {
-    const dataSubIndicadoresEgr = this.http.get<CategoryInterface[]>('http://localhost:3001/subindicadores/egresos');
+    const dataSubIndicadoresEgr = this.http.get<CategoryInterface[]>(this.api + 'subindicadores/egresos');
     return dataSubIndicadoresEgr;
   }
   /* **************************************************************************************************************************************************************** */
 
 
 
+
+  //INSERTAR TABLA LIBRO DE BANCO
+  // id_mov, fecha_mov, cod_contable, id_transaccion, descripcion, salidas_libro, entradas_libro, saldo_libro, id_categoria, id_subcategoria, id_indicador, id_subindicador
+  addMovimiento(fecha_mov: string, cod_contable: number, id_transaccion: number, descripcion: string, salidas_libro: number, entradas_libro: number, saldo_libro: number, id_categoria: number, id_subcategoria: number, id_indicador: number, id_subindicador: number): Observable<any> {
+    const dataVtiger = this.http.post(this.api + 'libro_banco/agregar', { fecha_mov, cod_contable, id_transaccion, descripcion, salidas_libro, entradas_libro, saldo_libro, id_categoria, id_subcategoria, id_indicador, id_subindicador });
+    return dataVtiger;
+  }
+
+
+  /* 
+dateEmit: "2019-12-02T03:00:00.000Z"
+datePay: "2019-12-02T03:00:00.000Z"
+detail: "Soporte Noviembre"
+emitFor: "Fehoch"
+id: "INV2574"
+state: "Paid"
+total: "70593.00000000" */
 }

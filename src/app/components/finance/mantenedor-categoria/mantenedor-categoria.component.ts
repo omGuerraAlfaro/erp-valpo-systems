@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 })
 
 export class MantenedorCategoriaComponent implements OnInit {
+  dataOld:any;
   editSubCategoriaGroup = new FormGroup({
     subcategoria: new FormControl(''),
     cod_contable: new FormControl(''),
@@ -127,17 +128,23 @@ export class MantenedorCategoriaComponent implements OnInit {
     //toda la data de categorias.
     this.data.getAllCategory().subscribe((data: any) => {
       this.dataCat = data.map((categoria: any) => categoria.descripcion);
+      console.log(this.dataCat);
+      
     });
     this.data.getAllSubCategoria().subscribe((data: CategoryInterface[]) => {
       this.dataSubCat = data.map((subcategoria: any) => subcategoria.descripcion);
+      console.log(this.dataSubCat);
+      
     });
 
     this.data.getAllIndicadores().subscribe((data: CategoryInterface[]) => {
       this.dataInd = data.map((indicador: any) => indicador.descripcion);
+      console.log(this.dataInd);      
     });
 
     this.data.getAllSubIndicadores().subscribe((data: CategoryInterface[]) => {
       this.dataSubInd = data.map((subindicador: any) => subindicador.descripcion);
+      console.log(this.dataSubInd);
     });
 
 
@@ -258,23 +265,23 @@ export class MantenedorCategoriaComponent implements OnInit {
       this.router.navigate(['/content'], extras);
     });
   }
+
+  /* EDIT INCOMPLETO, NO ME AGREGA LA FK DE CATEGORIA. */
   getDataEditSubCategory(dataInformation: any) {
-    console.log(dataInformation);
-    const { id_subcategoria, cod_contable, descripcion, id_categoria } = dataInformation;
+    this.dataOld = dataInformation;
+    console.log(this.dataOld);
     this.editSubCategoriaGroup.setValue({
-      subcategoria: dataInformation.id_subcategoria,
-      cod_contable: dataInformation.cod_contable,
-      descripcion: dataInformation.descripcion,
-      id_categoria: dataInformation.id_categoria
-    });
+      id_categoria: this.dataOld.id_categoria,
+      cod_contable: this.dataOld.cod_contable,
+      descripcion: this.dataOld.descripcion,
+      subcategoria: this.dataOld.id_subcategoria,
+    });    
   }
   editSubCategory() {
+    let fkCategoria: number = +this.editSubCategoriaGroup.value.id_categoria!;        
     let subCategoria: number = +this.editSubCategoriaGroup.value.subcategoria!;
-    let codContable: number = +this.editSubCategoriaGroup.value.cod_contable!;
     let descripcionSub = this.editSubCategoriaGroup.value.descripcion!;
-    let fkCategoria: number = +this.editSubCategoriaGroup.value.id_categoria!;
-    console.log(subCategoria, codContable, descripcionSub, fkCategoria);
-    
+    let codContable: number = +this.editSubCategoriaGroup.value.cod_contable!;
     this.data.editSubCategory(subCategoria, codContable, descripcionSub, fkCategoria).subscribe((data: any) => {
       Swal.fire({
         position: 'top',

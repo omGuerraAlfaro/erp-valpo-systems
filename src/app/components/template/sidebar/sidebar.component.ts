@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { VtigerService } from 'src/app/services/vtiger.service';
 import Swal from 'sweetalert2';
 
 
@@ -11,9 +12,14 @@ import Swal from 'sweetalert2';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthService){}
+  constructor(private router: Router, private auth: AuthService, private data: VtigerService){}
 
+  countVtiger: any;
   ngOnInit(): void {
+    this.data.getCompanyInfo().subscribe((data: any) => {
+      this.countVtiger = data.length;
+      console.log(this.countVtiger);
+    });
   }
 
 

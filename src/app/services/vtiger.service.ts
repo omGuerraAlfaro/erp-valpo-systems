@@ -14,4 +14,7 @@ export class VtigerService {
     const dataVtiger = this.http.get(this.api + 'query');
     return dataVtiger;
   }
+
+  
+
 }
