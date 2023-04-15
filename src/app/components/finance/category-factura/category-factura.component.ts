@@ -86,7 +86,7 @@ export class CategoryFacturaComponent implements OnInit {
        this.dataCategoriasSelect.subIndicadorSelect).subscribe((data: any) => {
       console.log(data);
       console.log("Movimiento insertado correctamente");
-      
+      /* ORDENAR INSERT */
     });
   }
 
