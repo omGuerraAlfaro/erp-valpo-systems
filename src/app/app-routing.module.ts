@@ -55,7 +55,6 @@ const routes: Routes = [
   },
   { path: 'colaboradores', component: ColaboradoresComponent},
   { path: 'remuneraciones', component: RemuneracionesComponent},
-  //{ path: '', redirectTo: '/home', pathMatch: 'full'}
 
 ];
 

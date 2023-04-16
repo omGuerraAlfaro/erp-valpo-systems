@@ -94,21 +94,11 @@ export class MantenedorCategoriaComponent implements OnInit {
   dataInd: any;
   dataSubInd: any;
 
-  catEgreso: any;
-  subEgreso: any;
-  subSubEgreso: any;
-  indEgreso: any;
-
-  catIngreso: any;
-  subIngreso: any;
-  subSubIngreso: any;
-  indIngreso: any;
-
   catActivo: any;
   subCatActivo: any;
   indActivo: any;
-  subIndActivo: any;
-
+  subIndActivo: any;  
+  
   catPasivo: any;
   subPasivo: any;
   subSubPasivo: any;
@@ -117,8 +107,18 @@ export class MantenedorCategoriaComponent implements OnInit {
   catPatri: any;
   subPatri: any;
   subSubPatri: any;
-  indPatri: any;
-
+  indPatri: any;  
+  
+  catIngreso: any;
+  subIngreso: any;
+  subSubIngreso: any;
+  indIngreso: any;
+  
+  catEgreso: any;
+  subEgreso: any;
+  subSubEgreso: any;
+  indEgreso: any;
+  
   currentRoute = this.route.snapshot.url[0].path;
 
   constructor(private data: CategoryService, private route: ActivatedRoute, private router: Router) {
@@ -128,8 +128,7 @@ export class MantenedorCategoriaComponent implements OnInit {
     //toda la data de categorias.
     this.data.getAllCategory().subscribe((data: any) => {
       this.dataCat = data.map((categoria: any) => categoria.descripcion);
-      console.log(this.dataCat);
-      
+      console.log(this.dataCat);      
     });
     this.data.getAllSubCategoria().subscribe((data: CategoryInterface[]) => {
       this.dataSubCat = data.map((subcategoria: any) => subcategoria.descripcion);

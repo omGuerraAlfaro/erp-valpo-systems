@@ -26,7 +26,7 @@
         <hr>
         <div class="responsive-table container">
             <h5>Movimientos por Categorizar:</h5>
-            <table class="table table-bordered table-striped table-sm table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-striped table-sm ">
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">id Movimiento</th>
@@ -74,14 +74,18 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Categorizar Movimiento</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
+
+            <!-- MODAL -->
             <div class="modal-body">
                 <form [formGroup]="categorizarGroup" (ngSubmit)="categorizarInsert()">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="categoria" class="form-label">Categoria</label>
-                            <select class="form-select" formControlName="id_categoria">
-                                <option value="">Seleccione...</option>
-                                <option value="{{i+1}}" *ngFor="let cat of catActivo; let i = index">
+                            <select class="form-select" formControlName="id_categoria"
+                                (change)="actualizarTablasSecundarias()">
+                                <option value="0">Seleccione...</option>
+                                <option value="{{i+1}}" *ngFor="let cat of dataCat; let i = index">
                                     {{cat.descripcion}}
                                 </option>
                             </select>
@@ -89,43 +93,186 @@
                                 Porfavor seleccione un valor.
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="subcategoria" class="form-label">Sub Categoria</label>
-                            <select class="form-select" formControlName="id_subcategoria">
-                                <option value="">Seleccione...</option>
-                                <option value="{{i+1}}" *ngFor="let cat of subCatActivo; let i = index">
-                                    {{cat.descripcion}}
-                                </option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Porfavor seleccione un valor.
+                        <div *ngIf="tablasSecundarias.activo" class="col-md-6"> <!--  -->
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Categoria</label>
+                                <select class="form-select" formControlName="id_subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subCatActivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Indicador</label>
+                                <select class="form-select" formControlName="id_indicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indActivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Indice</label>
+                                <select class="form-select" formControlName="id_subindicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subIndActivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="subcategoria" class="form-label">Indicador</label>
-                            <select class="form-select" formControlName="id_indicador">
-                                <option value="">Seleccione...</option>
-                                <option value="{{i+1}}" *ngFor="let cat of indActivo; let i = index">
-                                    {{cat.descripcion}}
-                                </option>
-                            </select>
+                        <div *ngIf="tablasSecundarias.pasivo" class="col-md-6"> <!--  -->
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Categoria</label>
+                                <select class="form-select" formControlName="id_subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subCatPasivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Indicador</label>
+                                <select class="form-select" formControlName="id_indicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indPasivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Indice</label>
+                                <select class="form-select" formControlName="id_subindicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subIndPasivo; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="subcategoria" class="form-label">Sub Indice</label>
-                            <select class="form-select" formControlName="id_subindicador">
-                                <option value="">Seleccione...</option>
-                                <option value="{{i+1}}" *ngFor="let cat of subIndActivo; let i = index">
-                                    {{cat.descripcion}}
-                                </option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Porfavor seleccione un valor.
+                        <div *ngIf="tablasSecundarias.patrimonio" class="col-md-6"> <!--  -->
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Categoria</label>
+                                <select class="form-select" formControlName="id_subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subCatPatri; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Indicador</label>
+                                <select class="form-select" formControlName="id_indicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indPatri; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Indice</label>
+                                <select class="form-select" formControlName="id_subindicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subIndPatri; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="tablasSecundarias.ingreso" class="col-md-6"> <!--  -->
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Categoria</label>
+                                <select class="form-select" formControlName="id_subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subCatIngreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Indicador</label>
+                                <select class="form-select" formControlName="id_indicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indIngreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Indice</label>
+                                <select class="form-select" formControlName="id_subindicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subIndIngreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="tablasSecundarias.egreso" class="col-md-6"> <!--  -->
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Categoria</label>
+                                <select class="form-select" formControlName="id_subcategoria">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subCatEgreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Indicador</label>
+                                <select class="form-select" formControlName="id_indicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of indEgreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="subcategoria" class="form-label">Sub Indice</label>
+                                <select class="form-select" formControlName="id_subindicador">
+                                    <option value="">Seleccione...</option>
+                                    <option value="{{i+1}}" *ngFor="let cat of subIndEgreso; let i = index">
+                                        {{cat.descripcion}}
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un valor.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer flex-column border-top-0">
                         <button type="button" class="btn btn-primary w-100 mx-0 mb-2" type="submit">Categorizar</button>
-                        <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+                        <button type="button" class="btn btn-secondary w-100 mx-0" data-bs-dismiss="modal"
+                            (click)="closeModal()">Cerrar</button>
                     </div>
                 </form>
             </div>

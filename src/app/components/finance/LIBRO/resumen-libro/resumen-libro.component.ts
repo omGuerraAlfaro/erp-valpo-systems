@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TablaLibroInterface } from 'src/app/interfaces/tablaLibroInterface';
+import { CategoryService } from 'src/app/services/category.service';
 import Swal from 'sweetalert2';
 
 
@@ -9,10 +11,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./resumen-libro.component.css']
 })
 export class ResumenLibroComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  table:any
+  constructor(private router: Router, private data: CategoryService) { }
 
   ngOnInit(): void {
+    this.data.getMovimientos().subscribe((data: TablaLibroInterface) => {
+      this.table = data;    
+    });
   }
 
   eliminar() {

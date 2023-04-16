@@ -12,6 +12,12 @@ import { Sidebar2Component } from './components/template/sidebar2/sidebar2.compo
 import { HeaderComponent } from './components/template/header/header.component';
 import { ContentComponent } from './components/template/content/content.component';
 
+//formato de fecha
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import { LOCALE_ID } from '@angular/core';
+registerLocaleData(localeEs, 'es');
+
 //components
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -74,7 +80,7 @@ import { ProveedorComponent } from './components/clientes-proveedores/proveedor/
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

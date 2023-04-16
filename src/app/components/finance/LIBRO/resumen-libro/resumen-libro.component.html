@@ -39,21 +39,35 @@
             <table class="table table-bordered table-striped table-sm">
                 <thead>
                     <tr>
-                        <th scope="col" class="text-center">N° Factura</th>
-                        <th scope="col">Fecha Emisión</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Creada Por</th>
-                        <th scope="col">Detalle</th>
+                        <th scope="col">id Movimiento</th>
+                        <th scope="col">Fecha Movimiento</th>
+                        <th scope="col">Codigo Contable</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Empresa Asociada</th>
+                        <th scope="col">Salidas</th>
+                        <th scope="col">Entradas</th>
+                        <th scope="col">Saldo</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Sub Categoria</th>
+                        <th scope="col">Indicador</th>
+                        <th scope="col">Sub Indicador</th>
                         <th scope="col" class="text-center">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
+                    <tr *ngFor="let lib of table">
+                        <th scope="col" class="text-center">{{lib.id_mov}}</th>
+                        <td scope="col">{{lib.fecha_mov | date:'dd MMMM, yyyy'}}</td>
+                        <th scope="col">{{lib.cod_contable}}</th>
+                        <td scope="col">{{lib.descripcion}}</td>
+                        <td scope="col">{{lib.empresa_asociada}}</td>
+                        <td scope="col">{{lib.salidas_libro | mount}}</td>
+                        <td scope="col">{{lib.entradas_libro | mount}}</td>
+                        <td scope="col">{{lib.saldo_libro | mount}}</td>
+                        <td scope="col">{{lib.id_categoria}}</td>
+                        <td scope="col">{{lib.id_subcategoria}}</td>
+                        <td scope="col">{{lib.id_indicador}}</td>
+                        <td scope="col">{{lib.id_subindicador}}</td>
                         <td scope="col" class="text-center">
                             <div class="dropdown">
                                 <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
@@ -76,318 +90,12 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
+                                        <a class="dropdown-item pointer" (click)="eliminar()">Eliminar</a>
                                     </li>
                                 </ul>
                             </div>
                         </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="text-center">123123123</th>
-                        <td scope="col">Miercoles 22 de Marzo</td>
-                        <td scope="col">Pendiente</td>
-                        <td scope="col">Omar Guerra A.</td>
-                        <td scope="col">Compra de insumos informaticos</td>
-                        <td scope="col" class="text-center">
-                            <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
-                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <button type="button" class="btn btn-light border mx-auto">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
-                                            fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
-                                    aria-labelledby="dropdownUser1">
-                                    <li>
-                                        <a class="dropdown-item disable" routerLink="#" data-bs-toggle="modal" data-bs-target="#editModal">Editar</a>
-                                    </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" (click)="eliminar()">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
+                    </tr>                    
                 </tbody>
             </table>
         </div>
