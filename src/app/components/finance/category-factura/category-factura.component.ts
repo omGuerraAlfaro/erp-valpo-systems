@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
@@ -52,7 +52,7 @@ export class CategoryFacturaComponent implements OnInit {
   currentRoute = this.route.snapshot.url[0].path;
   
   categorizarGroup = new FormGroup({
-    id_categoria: new FormControl(''),
+    id_categoria: new FormControl('', Validators.required),
     id_subcategoria: new FormControl(''),
     id_indicador: new FormControl(''),
     id_subindicador: new FormControl(''),
