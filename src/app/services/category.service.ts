@@ -187,17 +187,22 @@ export class CategoryService {
 
 
 
-
+  /* **************************************************************************************************************************************************************** */
   //INSERTAR TABLA LIBRO DE BANCO
-  // id_mov, fecha_mov, cod_contable, id_transaccion, descripcion, salidas_libro, entradas_libro, saldo_libro, id_categoria, id_subcategoria, id_indicador, id_subindicador
-  addMovimiento(id: string, id_mov: number, fecha_mov: Date, cod_contable: number, descripcion: string, empresa_asociada: string, salidas_libro: number, entradas_libro: number, saldo_libro: number, id_categoria: number, id_subcategoria: number, id_indicador: number, id_subindicador: number): Observable<any> {
-    const dataVtiger = this.http.post(this.api + 'libro_banco/agregar', { id, id_mov, fecha_mov, cod_contable, descripcion, empresa_asociada, salidas_libro, entradas_libro, saldo_libro, id_categoria, id_subcategoria, id_indicador, id_subindicador });
+  addMovimiento(id: string, id_mov: number, fecha_mov: Date, cod_contable: number, descripcion: string, empresa_asociada: string, salidas_libro: number, entradas_libro: number, saldo_libro: number, id_categoria: number, id_subcategoria: number, id_indicador: number, id_subindicador: number, estado: string): Observable<any> {
+    const dataVtiger = this.http.post(this.api + 'libro_banco/agregar', { id, id_mov, fecha_mov, cod_contable, descripcion, empresa_asociada, salidas_libro, entradas_libro, saldo_libro, id_categoria, id_subcategoria, id_indicador, id_subindicador, estado });
     return dataVtiger;
   }
 
   //OBTENER TABLA LIBRO DE BANCO
   getMovimientos(): Observable<any> {
     const dataVtiger = this.http.get(this.api + 'libro_banco');
+    return dataVtiger;
+  }
+
+  //ELIMINAR TABLA LIBRO DE BANCO
+  deleteMovimiento(id: number): Observable<any> {
+    const dataVtiger = this.http.delete(this.api + 'libro_banco/eliminar/' + id);
     return dataVtiger;
   }
 

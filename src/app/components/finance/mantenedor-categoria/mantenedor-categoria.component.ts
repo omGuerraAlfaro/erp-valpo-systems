@@ -309,6 +309,7 @@ export class MantenedorCategoriaComponent implements OnInit {
       console.log("Se agregó el Indicador");
     });
   }
+  
   deleteIndicator(dataInformation: any) {
     console.log(dataInformation);
     let id = dataInformation;

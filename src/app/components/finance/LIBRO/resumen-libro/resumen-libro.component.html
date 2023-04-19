@@ -70,7 +70,7 @@
                         <td scope="col">{{lib.id_subindicador}}</td>
                         <td scope="col" class="text-center">
                             <div class="dropdown">
-                                <a routerLink="#" class="d-flex align-items-center text-black text-decoration-none"
+                                <a class="d-flex align-items-center text-black text-decoration-none"
                                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <button type="button" class="btn btn-light border mx-auto">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
@@ -90,7 +90,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item pointer" (click)="eliminar()">Eliminar</a>
+                                        <a class="dropdown-item pointer" (click)="eliminar(lib.id_libro)">Eliminar</a>
                                     </li>
                                 </ul>
                             </div>

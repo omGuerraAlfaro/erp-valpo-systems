@@ -10,14 +10,13 @@
     width: 174vh;
 }
 
-.my-custom-scrollbar {
+.content-wrapper-scroll-y {
     position: relative;
-    height: 57vh;
+    height: 63vh;
     width: 100%;
     overflow: auto;
 }
 
-.table-wrapper-scroll-y {
+.content-custom-scrollbar {
     display: block;
-    max-width: 100%;
 }

@@ -17,20 +17,20 @@ export class CategoryFacturaComponent implements OnInit {
 
   subCatActivo: any;
   indActivo: any;
-  subIndActivo: any;  
-  
+  subIndActivo: any;
+
   subCatPasivo: any;
   indPasivo: any;
   subIndPasivo: any;
-  
+
   subCatPatri: any;
-  indPatri: any;  
+  indPatri: any;
   subIndPatri: any;
-  
+
   subCatIngreso: any;
   indIngreso: any;
   subIndIngreso: any;
-  
+
   subCatEgreso: any;
   indEgreso: any;
   subIndEgreso: any;
@@ -43,14 +43,14 @@ export class CategoryFacturaComponent implements OnInit {
     egreso: false
   };
   /* ********************* */
-  
+
   dataVtiger: any;
   dataCategoriasSelect: any
   dataCategorizarSelect: any
-  
+
   constructor(private router: Router, private datav: VtigerService, public data: CategoryService, private route: ActivatedRoute) { }
   currentRoute = this.route.snapshot.url[0].path;
-  
+
   categorizarGroup = new FormGroup({
     id_categoria: new FormControl('', Validators.required),
     id_subcategoria: new FormControl(''),
@@ -60,6 +60,9 @@ export class CategoryFacturaComponent implements OnInit {
 
   ngOnInit(): void {
     this.datav.getCompanyInfo().subscribe((data: any) => {
+      data.forEach((element: any) => {
+        element.estadoCategorizado = '';
+      });
       this.dataVtiger = data;
       console.log(this.dataVtiger);
     });
@@ -67,7 +70,7 @@ export class CategoryFacturaComponent implements OnInit {
     //data desde subcategoria... por categoria
     //categorias.
     this.data.getAllCategory().subscribe((data: any) => {
-      this.dataCat = data;  
+      this.dataCat = data;
     });
     //Activos
     this.data.getCategorySubAct().subscribe((data: CategoryInterface[]) => {
@@ -140,7 +143,8 @@ export class CategoryFacturaComponent implements OnInit {
       userlabel: data.userlabel,
       accountname: data.accountname,
       subject: data.subject,
-      total: data.total
+      total: data.total,
+      estado: ''
     }
     console.log(this.dataCategorizarSelect);
     return this.dataCategorizarSelect;
@@ -151,7 +155,7 @@ export class CategoryFacturaComponent implements OnInit {
 
   */
   categorizarInsert() {
-    let estado = '';
+    let estado = 'categorizado';
     let codigoContable = 111111;
     let salidasLibro = 0;
     let entradasLibro = 0;
@@ -167,9 +171,10 @@ export class CategoryFacturaComponent implements OnInit {
       this.dataCategoriasSelect.categoriaSelect,
       this.dataCategoriasSelect.subCategoriaSelect,
       this.dataCategoriasSelect.indicadorSelect,
-      this.dataCategoriasSelect.subIndicadorSelect).subscribe((data: any) => {
+      this.dataCategoriasSelect.subIndicadorSelect, estado).subscribe((data: any) => {
         console.log("Movimiento insertado correctamente");
       });
+    
   }
 
 
@@ -224,21 +229,7 @@ export class CategoryFacturaComponent implements OnInit {
     }
   }
 
-  eliminar() {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: '¿Deseas eliminar el movimiento seleccionado?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, Eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.value) {
-        this.router.navigate(['/resumen-libro']);
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-      }
-    });
-  }
+  
   cerrarMes() {
     Swal.fire({
       title: '¿Estás seguro?',
