@@ -206,6 +206,12 @@ export class CategoryService {
     return dataVtiger;
   }
 
+  /* ID'S DE MOVIMIENTOS CATEGORIZADOS */
+  getMovimientosCategorizados(): Observable<any> {
+    const dataVtiger = this.http.get(this.api + 'libro_banco/categorizados');
+    return dataVtiger;
+  }
+  
 
 
 }

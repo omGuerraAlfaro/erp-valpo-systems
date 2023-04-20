@@ -16,7 +16,7 @@ export class SidebarComponent implements OnInit {
 
   countVtiger: any;
   ngOnInit(): void {
-    this.data.getCompanyInfo().subscribe((data: any) => {
+    this.data.getMovInfo().subscribe((data: any) => {
       this.countVtiger = data.length;
       console.log(this.countVtiger);
     });

@@ -14,7 +14,10 @@ import Swal from 'sweetalert2';
 export class CategoryFacturaComponent implements OnInit {
   /* DATA SELECCIÓN MODAL CATEGORIZADOR */
   dataCat: any;
-
+  /* ID DE MOVIENTOS CATEGORIZADOS */
+  idCategorizados:any;
+  invoices:any[] = [];
+  /* ********************* */
   subCatActivo: any;
   indActivo: any;
   subIndActivo: any;
@@ -59,13 +62,30 @@ export class CategoryFacturaComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.datav.getCompanyInfo().subscribe((data: any) => {
+    this.datav.getMovInfo().subscribe((data: any) => {
       data.forEach((element: any) => {
         element.estadoCategorizado = '';
       });
       this.dataVtiger = data;
       console.log(this.dataVtiger);
     });
+
+    /* ID'S DE MOVIMIENTOS CATEGORIZADOS */
+    this.data.getMovimientosCategorizados().subscribe((data: any) => {
+      const cadena = data.map((item: any) => item.id_mov);
+      const miCadena: string = cadena.join(",");
+      this.idCategorizados = miCadena;
+      console.log(this.idCategorizados);
+    });
+
+    /* FILTRO DE MOVIEMIENTOS YA CATEGORIZADOS */
+    const excludedInvoiceNos = this.idCategorizados;
+    this.datav.getInvoices(excludedInvoiceNos).subscribe(data => {
+      this.invoices = data;
+      console.log(this.invoices);
+    });
+
+    
 
     //data desde subcategoria... por categoria
     //categorias.
@@ -132,6 +152,10 @@ export class CategoryFacturaComponent implements OnInit {
     this.data.getCategorySubIndEgr().subscribe((data: CategoryInterface[]) => {
       this.subIndEgreso = data;
     });
+
+
+
+    
   }
 
   dataCategorizar(data: any) {

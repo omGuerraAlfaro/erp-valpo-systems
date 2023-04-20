@@ -8,12 +8,19 @@ import { Observable } from 'rxjs';
 export class VtigerService {
 
   constructor(private http: HttpClient) { }
-  private api = 'http://localhost:3000/';
+  
+  private API_URL = 'http://localhost:3000/';
   //Movimientos.
-  getCompanyInfo(): Observable<any> {
-    const dataVtiger = this.http.get(this.api + 'query');
+  getMovInfo(): Observable<any> {
+    const dataVtiger = this.http.get(this.API_URL + 'query');
     return dataVtiger;
   }
+
+  getInvoices(excludedInvoiceNos: string[]): Observable<any> {
+    const excludedInvoiceNosParam = excludedInvoiceNos.join(',');
+    return this.http.get(`${this.API_URL}?excludedInvoiceNos=${excludedInvoiceNosParam}`);
+  }
+  
 
   
 
