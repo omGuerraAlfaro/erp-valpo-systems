@@ -19,10 +19,10 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let cat of catPasivo">
-                        <th class="text-center" scope="row">{{cat.cod}}</th>
-                        <th>{{cat.nombre_cod}}</th>
+                        <th class="text-center" scope="row">{{cat.cod_contable}}</th>
+                        <th>{{cat.descripcion}}</th>
                         <th class="spacing">
-                            {{cat.valor | mount}}
+                            {{cat.total_salidas | mount}}
                         </th>
                     </tr>
                 </tbody>

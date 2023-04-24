@@ -14,14 +14,12 @@ export class VtigerService {
   getMovInfo(): Observable<any> {
     const dataVtiger = this.http.get(this.API_URL + 'query');
     return dataVtiger;
-  }
-
-  getInvoices(excludedInvoiceNos: string[]): Observable<any> {
-    const excludedInvoiceNosParam = excludedInvoiceNos.join(',');
-    return this.http.get(`${this.API_URL}?excludedInvoiceNos=${excludedInvoiceNosParam}`);
-  }
+  }  
   
-
+  getInvoices(excludeInvoiceNumbers: string[]): Observable<any> {
+    const excludeParam = excludeInvoiceNumbers.join(',');
+    return this.http.get(`${this.API_URL}invoicesuppress?exclude=${excludeParam}`);
+  }
   
 
 }

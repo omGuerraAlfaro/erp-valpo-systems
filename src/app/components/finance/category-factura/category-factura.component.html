@@ -29,8 +29,7 @@
             <table class="table table-bordered table-striped table-sm ">
                 <thead>
                     <tr>
-                        <th scope="col" class="text-center">id Movimiento</th>
-                        <th scope="col">Código Factura</th>
+                        <th scope="col" class="text-center">Código Factura</th>
                         <th scope="col">Fecha Factura</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Emitida por</th>
@@ -42,8 +41,7 @@
                 </thead>
                 <tbody *ngFor="let tab of dataVtiger">
                     <tr>
-                        <th scope="col" class="text-center">{{tab.crmid}}</th>
-                        <td scope="col">{{tab.invoice_no}}</td>
+                        <th scope="col" class="text-center">{{tab.invoice_no}}</th>
                         <td scope="col">{{tab.invoicedate | date}}</td>
                         <td scope="col">{{tab.invoicestatus}}</td>
                         <td scope="col">{{tab.userlabel}}</td>

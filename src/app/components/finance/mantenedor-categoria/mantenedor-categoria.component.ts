@@ -275,13 +275,15 @@ export class MantenedorCategoriaComponent implements OnInit {
       descripcion: this.dataOld.descripcion,
       subcategoria: this.dataOld.id_subcategoria,
     });    
-  }
+  }  
   editSubCategory() {
-    let fkCategoria: number = +this.editSubCategoriaGroup.value.id_categoria!;        
     let subCategoria: number = +this.editSubCategoriaGroup.value.subcategoria!;
-    let descripcionSub = this.editSubCategoriaGroup.value.descripcion!;
     let codContable: number = +this.editSubCategoriaGroup.value.cod_contable!;
-    this.data.editSubCategory(subCategoria, codContable, descripcionSub, fkCategoria).subscribe((data: any) => {
+    let descripcionSub = this.editSubCategoriaGroup.value.descripcion!;
+    let id_categoria: number = +this.editSubCategoriaGroup.value.id_categoria!; 
+    // console.log(subCategoria, codContable, descripcionSub, id_categoria);
+           
+    this.data.editSubCategory(subCategoria, codContable, descripcionSub, id_categoria).subscribe((data: any) => {
       Swal.fire({
         position: 'top',
         icon: 'success',

@@ -55,8 +55,8 @@ export class CategoryService {
     return dataCategoriaAct;
   }
   /* EDIT SUBCATEGORIA ACTIVOS */
-  editSubCategory(id_subcategoria: number, cod_contable: number, descripcion: string, fkCategoria: number): Observable<any> {
-    const dataCategoriaAct = this.http.put<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/editar/${id_subcategoria}`, { id_subcategoria, cod_contable, descripcion, fkCategoria });
+  editSubCategory(id_subcategoria: number, cod_contable: number, descripcion: string, id_categoria: number): Observable<any> {
+    const dataCategoriaAct = this.http.put<CategoriaInterface>(`http://localhost:3001/subcategorias/activos/editar/${id_subcategoria}`, { id_subcategoria, cod_contable, descripcion, id_categoria });
     return dataCategoriaAct;
   }
 
@@ -211,7 +211,47 @@ export class CategoryService {
     const dataVtiger = this.http.get(this.api + 'libro_banco/categorizados');
     return dataVtiger;
   }
+
+
+  /* **************************************************************************************************************************************************************** */
+
+
+  /* **************************************************************************************************************************************************************** */
+  /* SUMAS? POR CATEGORIA */
+  //activos
+  getSumActivo(): Observable<any> {
+    const sumActivo = this.http.get(this.api + 'libro_banco/getsum/activos');
+    return sumActivo;
+  }
+
+  //pasivos
+  getSumPasivo(): Observable<any> {
+    const sumPasivo = this.http.get(this.api + 'libro_banco/getsum/pasivos');
+    return sumPasivo;
+  }
+
+  //patrimonio
+  getSumPatrimonio(): Observable<any> {
+    const sumPatrimonio = this.http.get(this.api + 'libro_banco/getsum/patrimonio');
+    return sumPatrimonio;
+  }
+
+  //ingresos
+  getSumIngreso(): Observable<any> {
+    const sumIngreso = this.http.get(this.api + 'libro_banco/getsum/ingreso');
+    return sumIngreso;
+  }
+
+  //egresos
+  getSumEgreso(): Observable<any> {
+    const sumEgreso = this.http.get(this.api + 'libro_banco/getsum/egreso');
+    return sumEgreso;
+  } 
+
   
+
+  /* **************************************************************************************************************************************************************** */
+
 
 
 }

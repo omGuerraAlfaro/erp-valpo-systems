@@ -15,8 +15,8 @@ export class CategoryFacturaComponent implements OnInit {
   /* DATA SELECCIÓN MODAL CATEGORIZADOR */
   dataCat: any;
   /* ID DE MOVIENTOS CATEGORIZADOS */
-  idCategorizados:any;
-  invoices:any[] = [];
+  idCategorizados: any[] = [];
+  invoices: any[] = [];
   /* ********************* */
   subCatActivo: any;
   indActivo: any;
@@ -69,23 +69,39 @@ export class CategoryFacturaComponent implements OnInit {
       this.dataVtiger = data;
       console.log(this.dataVtiger);
     });
-
+    
+    
     /* ID'S DE MOVIMIENTOS CATEGORIZADOS */
     this.data.getMovimientosCategorizados().subscribe((data: any) => {
       const cadena = data.map((item: any) => item.id_mov);
       const miCadena: string = cadena.join(",");
-      this.idCategorizados = miCadena;
+      this.idCategorizados.push(miCadena);
       console.log(this.idCategorizados);
     });
-
-    /* FILTRO DE MOVIEMIENTOS YA CATEGORIZADOS */
-    const excludedInvoiceNos = this.idCategorizados;
-    this.datav.getInvoices(excludedInvoiceNos).subscribe(data => {
-      this.invoices = data;
-      console.log(this.invoices);
-    });
-
     
+    
+    /* FILTRO DE MOVIMIENTOS YA CATEGORIZADOS */
+    const excludeInvoiceNumbers = this.idCategorizados;
+    if (Array.isArray(excludeInvoiceNumbers)) {
+      this.datav.getInvoices(excludeInvoiceNumbers).subscribe(data => {
+        this.invoices = data;
+        console.log(this.invoices);
+      });
+    } else {
+      console.log('Error: excludeInvoiceNumbers no es un array.');
+    }
+
+    if (excludeInvoiceNumbers && excludeInvoiceNumbers.length > 0) {
+      this.datav.getInvoices(excludeInvoiceNumbers).subscribe(data => {
+        this.invoices = data;
+        console.log(this.invoices);
+      });
+    } else {
+      console.log('Error: excludeInvoiceNumbers no está definido o está vacío.');
+    }
+
+
+
 
     //data desde subcategoria... por categoria
     //categorias.
@@ -152,12 +168,9 @@ export class CategoryFacturaComponent implements OnInit {
     this.data.getCategorySubIndEgr().subscribe((data: CategoryInterface[]) => {
       this.subIndEgreso = data;
     });
-
-
-
-    
   }
 
+ 
   dataCategorizar(data: any) {
     this.dataCategorizarSelect = {
       id: '',
@@ -173,11 +186,6 @@ export class CategoryFacturaComponent implements OnInit {
     console.log(this.dataCategorizarSelect);
     return this.dataCategorizarSelect;
   }
-  /* TERMINANDO SELECT CATEGORIA MODAL() => {
-    FALTA TOTALIZAR... POR CATEGORIA. 
-  }
-
-  */
   categorizarInsert() {
     let estado = 'categorizado';
     let codigoContable = 111111;
@@ -196,9 +204,16 @@ export class CategoryFacturaComponent implements OnInit {
       this.dataCategoriasSelect.subCategoriaSelect,
       this.dataCategoriasSelect.indicadorSelect,
       this.dataCategoriasSelect.subIndicadorSelect, estado).subscribe((data: any) => {
+        Swal.fire({
+          position: 'top',
+          icon: 'success',
+          title: 'Sub - Categoría agregada correctamente',
+          showConfirmButton: false,
+          timer: 1200
+        })
         console.log("Movimiento insertado correctamente");
       });
-    
+
   }
 
 
@@ -253,7 +268,7 @@ export class CategoryFacturaComponent implements OnInit {
     }
   }
 
-  
+
   cerrarMes() {
     Swal.fire({
       title: '¿Estás seguro?',
