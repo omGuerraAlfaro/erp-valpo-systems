@@ -23,6 +23,11 @@ export class ActivosComponent implements OnInit {
       console.log(this.catActivo);
     });
     
+    this.data.getSumSubActivo().subscribe((data) => {
+      this.subActivo = data;
+      console.log(this.subActivo);
+    });
+    
 
 
 

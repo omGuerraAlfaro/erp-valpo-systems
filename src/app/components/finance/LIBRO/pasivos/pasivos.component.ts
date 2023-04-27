@@ -22,6 +22,11 @@ export class PasivosComponent implements OnInit {
       console.log(this.catPasivo);
     });
     
+    this.data.getSumSubPasivo().subscribe((data:any) => {
+      this.subPasivo = data;
+      console.log(this.subPasivo);
+    });
+    
     // //Pasivos
     // this.data.getCategoryPasivoValor().subscribe((data) => {
     //   //categoria

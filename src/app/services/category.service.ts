@@ -247,10 +247,21 @@ export class CategoryService {
     const sumEgreso = this.http.get(this.api + 'libro_banco/getsum/egreso');
     return sumEgreso;
   } 
+  /* **************************************************************************************************************************************************************** */
 
-  
 
   /* **************************************************************************************************************************************************************** */
+  /* SUMAS? POR SUBCATEGORIA */
+  //activos
+  getSumSubActivo(): Observable<any> {
+    const sumSubActivo = this.http.get(this.api + 'libro_banco/getsum/subcategoria/activos');
+    return sumSubActivo;
+  }
+  //pasivos
+  getSumSubPasivo(): Observable<any> {
+    const sumSubActivo = this.http.get(this.api + 'libro_banco/getsum/subcategoria/pasivos');
+    return sumSubActivo;
+  }
 
 
 

@@ -56,10 +56,10 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let cat2 of subPasivo">
-                                        <th class="text-center" scope=row>{{cat2.cod}}</th>
-                                        <td>{{cat2.nombre_cod}}</td>
+                                        <th class="text-center" scope=row>{{cat2.cod_contable}}</th>
+                                        <td>{{cat2.descripcion}}</td>
                                         <th class="spacing">
-                                            {{cat2.valor | mount}}
+                                            {{cat2.total_salidas | mount}}
                                         </th>
                                     </tr>
                                 </tbody>
