@@ -91,15 +91,6 @@ export class CategoryFacturaComponent implements OnInit {
       console.log('Error: excludeInvoiceNumbers no es un array.');
     }
 
-    if (excludeInvoiceNumbers && excludeInvoiceNumbers.length > 0) {
-      this.datav.getInvoices(excludeInvoiceNumbers).subscribe(data => {
-        this.invoices = data;
-        console.log(this.invoices);
-      });
-    } else {
-      console.log('Error: excludeInvoiceNumbers no está definido o está vacío.');
-    }
-
 
 
 
