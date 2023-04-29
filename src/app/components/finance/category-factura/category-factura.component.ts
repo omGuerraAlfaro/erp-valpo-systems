@@ -66,8 +66,8 @@ export class CategoryFacturaComponent implements OnInit {
       data.forEach((element: any) => {
         element.estadoCategorizado = '';
       });
-      this.dataVtiger = data;
-      console.log(this.dataVtiger);
+      // this.dataVtiger = data;
+      // console.log(this.dataVtiger);
     });
     
     
@@ -86,6 +86,7 @@ export class CategoryFacturaComponent implements OnInit {
       this.datav.getInvoices(excludeInvoiceNumbers).subscribe(data => {
         this.invoices = data;
         console.log(this.invoices);
+        this.dataVtiger = this.invoices;
       });
     } else {
       console.log('Error: excludeInvoiceNumbers no es un array.');

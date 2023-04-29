@@ -18,6 +18,7 @@ export class VtigerService {
   
   getInvoices(excludeInvoiceNumbers: string[]): Observable<any> {
     const excludeParam = excludeInvoiceNumbers.join(',');
+    console.log(excludeParam);    
     return this.http.get(`${this.API_URL}invoicesuppress?exclude=${excludeParam}`);
   }
   
