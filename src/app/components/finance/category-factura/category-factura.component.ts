@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { CategoryInterface } from 'src/app/interfaces/category';
 import { CategoryService } from 'src/app/services/category.service';
 import { VtigerService } from 'src/app/services/vtiger.service';
+import { forkJoin } from 'rxjs';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -62,37 +63,27 @@ export class CategoryFacturaComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.datav.getMovInfo().subscribe((data: any) => {
-      data.forEach((element: any) => {
-        element.estadoCategorizado = '';
-      });
-      // this.dataVtiger = data;
-      // console.log(this.dataVtiger);
-    });
-    
-    
-    /* ID'S DE MOVIMIENTOS CATEGORIZADOS */
-    this.data.getMovimientosCategorizados().subscribe((data: any) => {
-      const cadena = data.map((item: any) => item.id_mov);
+
+    /* SE OBTIENEN LOS MOVIMIENTOS PROVENIENTES DE VTIGER, 
+    SE COMPARAN CON LOS MOVIMIENTOS YA CATEGORIZADOS EN EL LIBRO DE BANCO */
+    forkJoin({
+      movimientosCategorizados: this.data.getMovimientosCategorizados(),
+      movInfo: this.datav.getMovInfo(),
+    }).subscribe(({ movimientosCategorizados, movInfo }) => {
+      console.log('movimientosCategorizados:', movimientosCategorizados);
+      console.log('movInfo:', movInfo);
+
+      const cadena = movimientosCategorizados.map((item: any) => item.id_mov);
       const miCadena: string = cadena.join(",");
       this.idCategorizados.push(miCadena);
-      console.log(this.idCategorizados);
+      console.log('this.idCategorizados:', this.idCategorizados);
+
+      const idsArray = this.idCategorizados[0].split(',');
+      console.log('idsArray:', idsArray);
+
+      this.dataVtiger = movInfo.filter((item: any) => !idsArray.includes(item.invoice_no));
+      console.log('this.dataVtiger:', this.dataVtiger);
     });
-    
-    
-    /* FILTRO DE MOVIMIENTOS YA CATEGORIZADOS */
-    const excludeInvoiceNumbers = this.idCategorizados;
-    if (Array.isArray(excludeInvoiceNumbers)) {
-      this.datav.getInvoices(excludeInvoiceNumbers).subscribe(data => {
-        this.invoices = data;
-        console.log(this.invoices);
-        this.dataVtiger = this.invoices;
-      });
-    } else {
-      console.log('Error: excludeInvoiceNumbers no es un array.');
-    }
-
-
 
 
     //data desde subcategoria... por categoria
@@ -162,7 +153,7 @@ export class CategoryFacturaComponent implements OnInit {
     });
   }
 
- 
+
   dataCategorizar(data: any) {
     this.dataCategorizarSelect = {
       id: '',
